@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace SynergisticBlog
 {
@@ -36,7 +38,19 @@ namespace SynergisticBlog
             AreaRegistration.RegisterAllAreas();
 
             // Use LocalDB for Entity Framework by default
-            Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+            //Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+            
+            var uriString = ConfigurationManager.AppSettings["SQLSERVER_URI"];
+            var uri = new Uri(uriString);
+            var connectionString = new SqlConnectionStringBuilder
+            {
+                DataSource = uri.Host,
+                InitialCatalog = uri.AbsolutePath.Trim('/'),
+                UserID = uri.UserInfo.Split(':').First(),
+                Password = uri.UserInfo.Split(':').Last(),
+            }.ConnectionString;
+
+            Database.DefaultConnectionFactory = new SqlConnectionFactory(connectionString);
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
