@@ -37,7 +37,7 @@ namespace SynergisticBlog
 
         protected virtual void Application_PreRequestHandlerExecute(Object sender, EventArgs e)
         {
-            ChangeConnectionString("DefaultConnection", ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
+            //ChangeConnectionString("DefaultConnection", ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
         }
 
         protected void Application_Start()
