@@ -53,7 +53,7 @@ namespace SynergisticBlog
             }.ConnectionString;
 
             //Database.DefaultConnectionFactory = new SqlConnectionFactory(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
-            ChangeEFConnectionString("DefaultConnection", connectionString);
+            ChangeEFConnectionString("DefaultConnection", ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
