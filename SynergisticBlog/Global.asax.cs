@@ -35,6 +35,11 @@ namespace SynergisticBlog
 
         }
 
+        protected virtual void Application_PreRequestHandlerExecute(Object sender, EventArgs e)
+        {
+            ChangeConnectionString("DefaultConnection", ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -52,8 +57,7 @@ namespace SynergisticBlog
                 Password = uri.UserInfo.Split(':').Last(),
             }.ConnectionString;
 
-            //Database.DefaultConnectionFactory = new SqlConnectionFactory(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
-            ChangeConnectionString("DefaultConnection", ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
+            //Database.DefaultConnectionFactory = new SqlConnectionFactory(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);            
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
