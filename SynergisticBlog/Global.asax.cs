@@ -50,7 +50,7 @@ namespace SynergisticBlog
                 Password = uri.UserInfo.Split(':').Last(),
             }.ConnectionString;
 
-            Database.DefaultConnectionFactory = new SqlConnectionFactory(connectionString);
+            Database.DefaultConnectionFactory = new SqlConnectionFactory(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
