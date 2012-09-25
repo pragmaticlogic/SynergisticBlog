@@ -105,8 +105,6 @@
     <Compile Include="Security\CustomMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-SynergisticBlog-20120921091704.mdf" />
-    <Content Include="App_Data\aspnet-SynergisticBlog-20120921091704_log.ldf" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -223,7 +221,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>57282</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50237/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
