@@ -18,7 +18,7 @@ namespace SynergisticBlog.Security
         {
             base.Initialize(name, config);// Update the private connection string field in the base class.
             string connectionString = ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];
-            // Set private property of Membership provider.
+            
             var connectionStringField = GetType().BaseType.GetField("_sqlConnectionString", BindingFlags.Instance | BindingFlags.NonPublic);
             connectionStringField.SetValue(this, connectionString);
         }
