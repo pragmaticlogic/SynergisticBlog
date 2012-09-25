@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Security;
 using System.Configuration;
+using System.Reflection;
 
 namespace SynergisticBlog.Security
 {
-    public class CustomMembershipProvider : SqlMembershipProvider
+    public class CustomRoleProvider : SqlRoleProvider
     {
         public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
         {
