@@ -5,23 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     
-    @if (HttpContext.Current.User.Identity.IsAuthenticated)
-    {
-		@Html.RouteLink("New Post", "Write", new { page = "Blog", update = false }, null)
-    }
-
-
-@foreach (var item in Model) {
-    <p>
-       
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
-        @item.TimeCreated.ToLocalTime()
-        </li>                    
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
-            <!--@Html.ActionLink(@item.Title, "Index", "Post", new { item.Id, item.Page }, null)-->
-            @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
-        </li>        
-    </p>
-}
+    
 
 
