@@ -28,10 +28,11 @@ namespace SynergisticBlog.Controllers
 
         private string GetMongoDbConnectionString()
         {
-            //return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
-            return ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
+            /*
+            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
                 ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
-                "mongodb://localhost/Blogs";
+                "mongodb://localhost/Blogs";*/
+            return ConfigurationManager.AppSettings.Get("MONGOLAB_URI");
         }
     }
 }
