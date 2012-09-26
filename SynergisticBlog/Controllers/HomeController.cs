@@ -17,10 +17,10 @@ namespace SynergisticBlog.Controllers
 
         public HomeController()
         {
-            //if (Database != null)
-            ///{
-            //    _collection = Database.GetCollection<Post>("Blogs");
-            //}
+            if (Database != null)
+            {
+                _collection = Database.GetCollection<Post>("Blogs");
+            }
         }
 
         public ActionResult Index()
@@ -29,8 +29,7 @@ namespace SynergisticBlog.Controllers
 
             var filter = @"{'Page': 'Blog'}";
 
-            //return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
-            return View(new List<Post>(0));
+            return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());            
         }
 
         public ActionResult New()
