@@ -21,7 +21,8 @@ namespace SynergisticBlog.Controllers
 
             var filter = @"{'Page': 'Blog'}";
             
-            var postCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
+            //var postCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
+            var a = _collection.FindAll();
 
             return View(new List<Post>());           
         }
