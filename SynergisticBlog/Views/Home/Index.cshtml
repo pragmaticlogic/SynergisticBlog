@@ -1,8 +1,35 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<SynergisticBlog.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+		@Html.RouteLink("New Post", "Write", new { page = "Blog", update = false }, null)
+    }
+
+
+@foreach (var item in Model) {
+    <p>
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+            @Html.RouteLink("Edit", "Write", new { page = "Blog", update = true, id = item.Id }, null)         
+        </li>
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </li>
+        }
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+        @item.TimeCreated.ToLocalTime()
+        </li>                    
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+            <!--@Html.ActionLink(@item.Title, "Index", "Post", new { item.Id, item.Page }, null)-->
+            @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
+        </li>        
+    </p>
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+
