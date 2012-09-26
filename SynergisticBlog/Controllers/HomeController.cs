@@ -15,14 +15,13 @@ namespace SynergisticBlog.Controllers
     {                
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Synergistic Studio";
 
             var filter = @"{'Page': 'Blog'}";
             
-            var postCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
-            //var a = _collection.FindAll();
+            var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));            
 
-            return View(postCollection.ToList<Post>());           
+            return View(mgCollection.ToList<Post>());           
         }
 
         public ActionResult New()

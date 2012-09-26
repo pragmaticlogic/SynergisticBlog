@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Configuration;
 
 namespace SynergisticBlog
 {
@@ -21,14 +22,27 @@ namespace SynergisticBlog
 
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");            
+
+            routes.MapRoute(
+                "Post", // Route name
+                //"{controller}/{action}/{id}/{page}", // URL with parameters
+                "Post/{id}/{page}",
+                new { controller = "Post", action = "Index" } // Parameter defaults
+            );
+
+            routes.MapRoute(
+                "Write", // Route name
+                //"{controller}/{action}/{id}/{page}", // URL with parameters
+                "Write/{page}/{update}/{id}",
+                new { controller = "Admin", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
 
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()
@@ -36,7 +50,7 @@ namespace SynergisticBlog
             AreaRegistration.RegisterAllAreas();
 
             // Use LocalDB for Entity Framework by default
-            Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+            Database.DefaultConnectionFactory = new SqlConnectionFactory(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
