@@ -1,0 +1,177 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+body {  
+  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#777;
+  font-weight:300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  margin:0 0 20px;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+
+h1, h2, h3 {
+  line-height:1.1;
+}
+
+h1 {
+  font-size:28px;
+}
+
+h2 {
+  color:#393939;
+}
+
+h3, h4, h5, h6 {
+  color:#494949;
+}
+
+a {
+  color:#39c;
+  font-weight:400;
+  text-decoration:none;
+}
+
+a:hover {
+  color:#069;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.6em;
+  display:block;
+}
+
+a:hover small {
+  color:#777;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	
+}
+
+a.blog_name {
+	border-bottom: none;
+	color: #008000;
+}
+
+.header {
+	padding-top: 10px;
+}
+
+.gap {
+	border-top: 1px solid #dcdcdc;
+	height: 15px;
+}
+
+.blog_post {
+	padding: 10px 20px 10px 20px;
+	border-left: 1px solid #dcdcdc;
+	border-right: 1px solid #dcdcdc;
+}
+
+.post_date {
+	font-size: 12px;
+	font-weight: bold;
+	color: #800000;
+}
+
+.post_tags {
+	font-size: 12px;
+	padding-bottom: 15px;
+}
+
+.post_tag {
+	padding: 3px 6px 10px 0px;
+}
+
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px; /*--Set height of tabs--*/
+	border-bottom: 1px solid #dcdcdc;
+	border-left: 1px solid #dcdcdc;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+	line-height: 31px; /*--Vertically aligns the text within the tab--*/
+	border: 1px solid #dcdcdc;
+	border-left: none;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	background: #f0f0f0;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #666;
+	display: block;
+	font-size: 1.2em;
+	padding: 0 20px;
+	border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+	outline: none;
+}
+ul.tabs li a:hover {
+	color: #008000;
+}
+html ul.tabs li.active { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #fff;
+	color: #000;
+	border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+.footer {
+	background-color: #000;
+	color: #fff;
+	padding: 5px 0 5px 0;
+}
+
+.footer-heading {
+	text-align: left;
+	padding: 10px;
+}
+
+.footer-heading h3 {
+	color: #fff;
+}
+
+.footer-heading a {	
+	color: #fff;
+	border-bottom: 1px dotted #dfdfdf;
+}
+
+.footer-heading a:hover {
+	color: #008000;
+}
+
+.footer2 {
+	margin-top: 10px;
+	font-size: 11px;
+}
+
+.footer2 a {
+	color: #fff;
+	border-bottom: 1px dotted #dfdfdf;
+}
+
+.footer2 a:hover {
+	color: #008000;
+}
