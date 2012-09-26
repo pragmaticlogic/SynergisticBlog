@@ -38,7 +38,7 @@ namespace SynergisticBlog.Controllers
             {
                 return View("About");
             }*/
-            return View("About");
+            return View();
         }
 
         public ActionResult New()
