@@ -20,14 +20,16 @@ namespace SynergisticBlog.Controllers
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
             var filter = @"{'Page': 'Blog'}";
+            
+            var postCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
 
-            if (Database != null)
+            if (postCollection != null)
             {
-                return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());                
+                return View(postCollection.ToList<Post>());
             }
             else
             {
-                return View("About");
+                return View(new List<Post>());
             }           
         }
 
