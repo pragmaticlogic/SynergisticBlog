@@ -29,7 +29,14 @@ namespace SynergisticBlog.Controllers
 
             var filter = @"{'Page': 'Blog'}";
 
-            return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());            
+            if (Database != null)
+            {
+                return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
+            }
+            else
+            {
+                return View("About");
+            }
         }
 
         public ActionResult New()
