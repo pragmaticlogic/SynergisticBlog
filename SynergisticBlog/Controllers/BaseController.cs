@@ -32,7 +32,7 @@ namespace SynergisticBlog.Controllers
             return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
                 ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
                 "mongodb://localhost/Blogs";*/
-            return ConfigurationManager.AppSettings.Get("MONGOLAB_URI");
+            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL | MONGOLAB_URI");
         }
     }
 }
