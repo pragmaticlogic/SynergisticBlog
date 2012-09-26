@@ -23,14 +23,7 @@ namespace SynergisticBlog.Controllers
             
             var postCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
 
-            if (postCollection != null)
-            {
-                return View(postCollection.ToList<Post>());
-            }
-            else
-            {
-                return View(new List<Post>());
-            }           
+            return View(new List<Post>());           
         }
 
         public ActionResult New()
