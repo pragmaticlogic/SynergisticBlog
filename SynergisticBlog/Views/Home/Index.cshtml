@@ -6,11 +6,29 @@
 }
     
   
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{
+	@Html.RouteLink("New Post", "Write", new { page = "Blog", update = false }, null)
+}
 
 
 @foreach (var item in Model) {
     <p>
-        @item.Title       
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+            @Html.RouteLink("Edit", "Write", new { page = "Blog", update = true, id = item.Id }, null)         
+        </li>
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </li>
+        }
+        <li style="display: inline; list-style-type: none; margin-right:10px;">
+        @item.TimeCreated.ToLocalTime()
+        </li>                    
+        <li style="display: inline; list-style-type: none; margin-right:10px;">            
+            @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
+        </li>        
     </p>
 }
 
