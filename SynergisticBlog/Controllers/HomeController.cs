@@ -29,6 +29,7 @@ namespace SynergisticBlog.Controllers
 
             var filter = @"{'Page': 'Blog'}";
 
+            /*
             if (Database != null)
             {
                 return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
@@ -36,7 +37,8 @@ namespace SynergisticBlog.Controllers
             else
             {
                 return View("About");
-            }
+            }*/
+            return View("About");
         }
 
         public ActionResult New()
