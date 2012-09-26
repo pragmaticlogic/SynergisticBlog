@@ -11,19 +11,6 @@ namespace SynergisticBlog.Controllers
 {
     public class BaseController : Controller
     {
-        public MongoDatabase Database
-        {
-            get
-            {
-                return MongoDatabase.Create(GetMongoDbConnectionString());
-            }
-        }
-
-        private string GetMongoDbConnectionString()
-        {
-            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
-                ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
-                "mongodb://localhost/Blogs";
-        }
+        
     }
 }
