@@ -29,8 +29,8 @@ namespace SynergisticBlog.Controllers
 
             var filter = @"{'Page': 'Blog'}";
 
-            //return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
-            return View();
+            return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
+            //return View();
         }
 
         public ActionResult New()
@@ -58,12 +58,10 @@ namespace SynergisticBlog.Controllers
         }
 
         private string GetMongoDbConnectionString()
-        {
-            /*
+        {            
             return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
                 ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
-                "mongodb://localhost/Blogs";*/
-            return ConfigurationManager.AppSettings.Get("MONGO_CS");
+                "mongodb://localhost/Blogs";            
         }
     }
 }
