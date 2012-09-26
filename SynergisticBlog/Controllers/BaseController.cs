@@ -15,7 +15,11 @@ namespace SynergisticBlog.Controllers
 
         public BaseController()
         {
-            _collection = Database.GetCollection<Post>("Blogs");
+            MongoDatabase db = Database;
+            if (db != null)
+            {
+                _collection = Database.GetCollection<Post>("Blogs");
+            }
         }
 
         public MongoDatabase Database
