@@ -5,10 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     
-    @if (HttpContext.Current.User.Identity.IsAuthenticated)
-    {
-        @HttpContext.Current.User.Identity.Name;		
-    }
+  
+
+@model IEnumerable<SynergisticBlog.Models.Post>
+@foreach (var item in Model) {
+    <p>
+        @item.Title       
+    </p>
+}
 
 
 
