@@ -5,11 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     
-    @if (HttpContext.Current.User.Identity.IsAuthenticated)
-    {
-		@Html.RouteLink("New Post", "Write", new { page = "Blog", update = false }, null)
-    }
-
-
+    
 
 
