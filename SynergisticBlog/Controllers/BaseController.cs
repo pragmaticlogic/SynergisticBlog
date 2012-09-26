@@ -10,18 +10,7 @@ using SynergisticBlog.Models;
 namespace SynergisticBlog.Controllers
 {
     public class BaseController : Controller
-    {
-        protected readonly MongoCollection<Post> _collection;
-
-        public BaseController()
-        {
-            MongoDatabase db = Database;
-            if (db != null)
-            {
-                _collection = Database.GetCollection<Post>("Blogs");
-            }
-        }
-
+    {        
         public MongoDatabase Database
         {
             get

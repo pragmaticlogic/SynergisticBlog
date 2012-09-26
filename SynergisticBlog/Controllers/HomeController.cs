@@ -10,7 +10,14 @@ using SynergisticBlog.Models;
 namespace SynergisticBlog.Controllers
 {
     public class HomeController : BaseController
-    {        
+    {
+        protected readonly MongoCollection<Post> _collection;
+
+        public HomeController()
+        {
+            _collection = Database.GetCollection<Post>("Blogs");
+        }
+
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
