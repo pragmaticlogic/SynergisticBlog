@@ -10,7 +10,7 @@ using SynergisticBlog.Models;
 namespace SynergisticBlog.Controllers
 {
     public class BaseController : Controller
-    {        
+    {
         public MongoDatabase Database
         {
             get
@@ -21,11 +21,9 @@ namespace SynergisticBlog.Controllers
 
         private string GetMongoDbConnectionString()
         {
-            /*
             return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
                 ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
-                "mongodb://localhost/Blogs";*/
-            return ConfigurationManager.AppSettings.Get("MONGO_CS");
+                "mongodb://localhost/Blogs";
         }
     }
 }

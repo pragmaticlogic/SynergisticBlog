@@ -11,17 +11,9 @@ using MongoDB.Driver;
 
 namespace SynergisticBlog.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        protected readonly MongoCollection<Post> _collection;
-
-        public HomeController()
-        {
-            if (Database != null)
-            {
-                _collection = Database.GetCollection<Post>("Blogs");
-            }
-        }
+        protected readonly MongoCollection<Post> _collection;        
 
         public ActionResult Index()
         {
@@ -31,8 +23,7 @@ namespace SynergisticBlog.Controllers
 
             if (Database != null)
             {
-                //return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
-                return View(new List<Post>());
+                return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());                
             }
             else
             {
@@ -54,21 +45,6 @@ namespace SynergisticBlog.Controllers
         public ActionResult About()
         {
             return View();
-        }
-
-        public MongoDatabase Database
-        {
-            get
-            {
-                return MongoDatabase.Create(GetMongoDbConnectionString());
-            }
-        }
-
-        private string GetMongoDbConnectionString()
-        {            
-            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
-                ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
-                "mongodb://localhost/Blogs";            
-        }
+        }        
     }
 }
