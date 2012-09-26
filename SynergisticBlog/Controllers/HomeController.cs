@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SynergisticBlog.Models;
+using MongoDB.Driver;
 
 namespace SynergisticBlog.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         protected readonly MongoCollection<Post> _collection;
 
@@ -45,6 +47,23 @@ namespace SynergisticBlog.Controllers
         public ActionResult About()
         {
             return View();
+        }
+
+        public MongoDatabase Database
+        {
+            get
+            {
+                return MongoDatabase.Create(GetMongoDbConnectionString());
+            }
+        }
+
+        private string GetMongoDbConnectionString()
+        {
+            /*
+            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
+                ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
+                "mongodb://localhost/Blogs";*/
+            return ConfigurationManager.AppSettings.Get("MONGO_CS");
         }
     }
 }
