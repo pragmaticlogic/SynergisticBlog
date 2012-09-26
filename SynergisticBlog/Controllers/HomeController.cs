@@ -32,7 +32,7 @@ namespace SynergisticBlog.Controllers
             if (Database != null)
             {
                 //return View(_collection.Find(new QueryDocument(QueryDocument.Parse(filter))).ToList<Post>());
-                return View();
+                return View(new List<Post>());
             }
             else
             {

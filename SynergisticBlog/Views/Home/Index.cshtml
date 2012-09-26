@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<SynergisticBlog.Models.Post>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +7,7 @@
     
   
 
-@model IEnumerable<SynergisticBlog.Models.Post>
+
 @foreach (var item in Model) {
     <p>
         @item.Title       
