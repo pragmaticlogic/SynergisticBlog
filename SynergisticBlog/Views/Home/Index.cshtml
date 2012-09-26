@@ -16,7 +16,7 @@
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">
-            @Html.RouteLink("Edit", "Write", new { page = "Blog", update = true, id = item.Id }, null)         
+            @Html.RouteLink("Edit", "Write", new { page = "Blog", update = true, id = 1 /*item.Id*/ }, null)         
         </li>
         <li style="display: inline; list-style-type: none; margin-right:10px;">
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
