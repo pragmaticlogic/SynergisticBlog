@@ -10,11 +10,7 @@ using SynergisticBlog.Models;
 namespace SynergisticBlog.Controllers
 {
     public class HomeController : BaseController
-    {
-        public HomeController()
-        {
-        }
-
+    {        
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
