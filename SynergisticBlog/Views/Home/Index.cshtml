@@ -8,7 +8,7 @@
   
 @if (HttpContext.Current.User.Identity.IsAuthenticated)
 {
-	@Html.RouteLink("New Post", "Write", new {  "Blog", false, "0" }, null)    
+	@Html.RouteLink("New Post", "Write", new {  page = "Blog", update = false, id = string.Empty }, null)    
     //@Html.ActionLink("New Post", "Index", "Admin", new {  page = "Blog", update = false, id = string.Empty}, null)
 }
 
