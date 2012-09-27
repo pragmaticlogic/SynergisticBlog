@@ -17,8 +17,7 @@
     <p>
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
-            <!--@Html.RouteLink("Edit", "Write", new { page = "Blog", update = true, id = item.Id }, null) -->
+        <li style="display: inline; list-style-type: none; margin-right:10px;">            
             @Html.ActionLink("Edit", "Index", "Admin", new {  page = "Blog", update = true, id = item.Id}, null)
         </li>
         <li style="display: inline; list-style-type: none; margin-right:10px;">
