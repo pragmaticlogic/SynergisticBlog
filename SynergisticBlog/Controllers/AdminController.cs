@@ -46,7 +46,8 @@ namespace SynergisticBlog.Controllers
             {
                 post.TimeCreated = DateTime.Now;
                 post.UUID = System.Guid.NewGuid().ToString();
-                _collection.Insert(post);
+                //_collection.Insert(post);
+                _collection.Save(post);
             }
             else
             {
