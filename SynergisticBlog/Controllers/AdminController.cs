@@ -13,9 +13,8 @@ namespace SynergisticBlog.Controllers
     public class AdminController : BaseController
     {
         [Authorize]
-        public ActionResult Index(string page, string update, string id)
-        {
-            /*
+        public ActionResult Index(string page, bool update, string id)
+        {            
             Post post = null;
 
             if (update)
@@ -29,12 +28,8 @@ namespace SynergisticBlog.Controllers
                     Page = page,
                     TimeCreated = DateTime.MinValue,
                 };
-            }*/
-            Post post = new Post()
-            {
-                Page = page,
-                TimeCreated = DateTime.MinValue,
-            };
+            }
+            
             return View(post);
         }
 
