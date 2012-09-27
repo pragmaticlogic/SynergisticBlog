@@ -160,16 +160,3 @@ html ul.tabs li.active { /*--Makes sure that the active tab does not listen to t
 	color: #008000;
 }
 
-.footer2 {
-	margin-top: 10px;
-	font-size: 11px;
-}
-
-.footer2 a {
-	color: #fff;
-	border-bottom: 1px dotted #dfdfdf;
-}
-
-.footer2 a:hover {
-	color: #008000;
-}
