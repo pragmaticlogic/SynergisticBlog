@@ -5,33 +5,88 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     
-  
-@if (HttpContext.Current.User.Identity.IsAuthenticated)
-{
-	//@Html.RouteLink("New Post", "Write", new {  page = "Blog", update = false, id = string.Empty }, null)    
-    @Html.ActionLink("New Post", "Index", "Admin", new {  page = "Blog", update = false, id = string.Empty}, null)
-}
+<div class="container">
+	<div id="header" onclick="location.href='/';"
+		style="cursor: pointer;">
+    </div>
+    <hr> 
+    <h2>
+        <a href="/" class="blog_name">
+        <span id="blog_name">
+            Title of your site
+        </span>
+        </a>
+    </h2>
+             
+    <hr> 
+    <h2 class="alt">Your site subhead would appear here.</h2> 
+    <hr>
+
+	<div class="header">
+		<div class="span-24 last">
+			<ul class="tabs">
+					<li id="page-blog" class="active">
+						<a href="/">Blog</a>
+					</li>
+					<li id="page-project" >
+						<a href="/projects">Projects</a>
+					</li>
+					<li id="page-about" >
+						<a href="/about">About</a>
+					</li>
+				</ul>
+		</div>
+	</div>
+
+	<div>
+		<div class="span-24 last">
+			
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+	            //@Html.RouteLink("New Post", "Write", new {  page = "Blog", update = false, id = string.Empty }, null)    
+                @Html.ActionLink("New Post", "Index", "Admin", new {  page = "Blog", update = false, id = string.Empty}, null)
+            }
 
 
-@foreach (var item in Model) {
-    <p>
-        @if (HttpContext.Current.User.Identity.IsAuthenticated)
-        {
-        <li style="display: inline; list-style-type: none; margin-right:10px;">            
-            @Html.ActionLink("Edit", "Index", "Admin", new {  page = "Blog", update = true, id = item.Id}, null)
-        </li>
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </li>
-        }
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
-        @item.TimeCreated.ToLocalTime()
-        </li>                    
-        <li style="display: inline; list-style-type: none; margin-right:10px;">            
-            @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
-        </li>        
-    </p>
-}
+            @foreach (var item in Model) {
+                <p>
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                    <li style="display: inline; list-style-type: none; margin-right:10px;">            
+                        @Html.ActionLink("Edit", "Index", "Admin", new {  page = "Blog", update = true, id = item.Id}, null)
+                    </li>
+                    <li style="display: inline; list-style-type: none; margin-right:10px;">
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </li>
+                    }
+                    <li style="display: inline; list-style-type: none; margin-right:10px;">
+                    @item.TimeCreated.ToLocalTime()
+                    </li>                    
+                    <li style="display: inline; list-style-type: none; margin-right:10px;">            
+                        @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
+                    </li>        
+                </p>
+            }
+
+		</div>
+	</div>
+</div>
+
+<div class="gap">
+
+</div>
+
+<div class="footer">
+	<div class="container">			
+		<div class="span-12">&nbsp;</div>
+		<div class="span-12 last footer">
+			<div>Powered by <a href="https://bitbucket.org/pragmaticlogic/njk">SynergisticBlogEngine</a> - Copyright 2012 Kevin Le</div>
+		</div>
+	</div>
+</div>
+
+<script>    hljs.initHighlightingOnLoad();</script>
+
 
 
 
