@@ -3,62 +3,103 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SynergisticBlog.Models;
-using MongoDB.Driver;
-using MongoDB.Bson;
-using MongoDB.Driver.Builders;
 
 namespace SynergisticBlog.Controllers
 {
-    public class AdminController : BaseController
+    public class AdminController : Controller
     {
-        [Authorize]
-        public ActionResult Index(string page, string update, string id)
-        {
-            /*
-            Post post = null;
+        //
+        // GET: /Admin/
 
-            if (update)
-            {
-                post = _collection.FindOneById(ObjectId.Parse(id));
-            }
-            else
-            {
-                post = new Post()
-                {
-                    Page = page,
-                    TimeCreated = DateTime.MinValue,
-                };
-            }*/
-            Post post = new Post()
-            {
-                Page = page,
-                TimeCreated = DateTime.MinValue,
-            };
-            return View("Index", post);
+        public ActionResult Index()
+        {
+            return View();
         }
 
-        [Authorize]
-        [ValidateInput(false)]
-        [HttpPost]
-        public ActionResult Create(Post post)
-        {
-            var query = Query.EQ("UUID", post.UUID);
-            var update = Update.Set("Title", post.Title)
-                .Set("Content", post.Content);
+        //
+        // GET: /Admin/Details/5
 
-            if (post.TimeCreated == DateTime.MinValue)
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        //
+        // GET: /Admin/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        } 
+
+        //
+        // POST: /Admin/Create
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
             {
-                post.TimeCreated = DateTime.Now;
-                post.UUID = System.Guid.NewGuid().ToString();
-                _collection.Insert(post);
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
             }
-            else
+            catch
             {
-                _collection.Update(query, update);
+                return View();
             }
-            
-            return RedirectToAction("Index", "Home");
+        }
+        
+        //
+        // GET: /Admin/Edit/5
+ 
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /Admin/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+ 
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Admin/Delete/5
+ 
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /Admin/Delete/5
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+ 
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
