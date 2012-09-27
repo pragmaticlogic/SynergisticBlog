@@ -138,9 +138,7 @@ html ul.tabs li.active { /*--Makes sure that the active tab does not listen to t
 	border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
 }
 
-.footer {
-	background-color: #000;
-	color: #fff;
+.footer {	
 	padding: 5px 0 5px 0;
 }
 
