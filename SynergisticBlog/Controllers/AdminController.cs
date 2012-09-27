@@ -11,7 +11,7 @@ namespace SynergisticBlog.Controllers
         //
         // GET: /Admin/
 
-        public ActionResult Index()
+        public ActionResult Index(string page, string update, string id)
         {
             return View();
         }
