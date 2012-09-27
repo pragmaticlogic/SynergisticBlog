@@ -33,9 +33,9 @@ namespace SynergisticBlog
 
             routes.MapRoute(
                 "Write", // Route name
-                //"{controller}/{action}/{id}/{page}", // URL with parameters
-                "Write/{page}/{update}/{id}",
-                new { controller = "Admin", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                "{controller}/{action}/{page}/{update}/{id}", // URL with parameters
+                //"Write/{page}/{update}/{id}",
+                new { controller = "Admin", action = "Write", id = UrlParameter.Optional } // Parameter defaults
             );
 
             routes.MapRoute(

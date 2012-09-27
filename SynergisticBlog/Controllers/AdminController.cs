@@ -13,7 +13,7 @@ namespace SynergisticBlog.Controllers
     public class AdminController : BaseController
     {
         [Authorize]
-        public ActionResult Index(string page, string update, string id)
+        public ActionResult Write(string page, string update, string id)
         {
             /*
             Post post = null;
