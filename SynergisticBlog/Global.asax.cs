@@ -31,13 +31,13 @@ namespace SynergisticBlog
                 new { controller = "Post", action = "Index" } // Parameter defaults
             );
 
-            /*
+            
             routes.MapRoute(
                 "Write", // Route name
                 //"{controller}/{action}/{page}/{update}/{id}", // URL with parameters
                 "Write/{page}/{update}/{id}",
                 new { controller = "Admin", action = "Index" } // Parameter defaults
-            );*/
+            );
 
             routes.MapRoute(
                 "Default", // Route name
