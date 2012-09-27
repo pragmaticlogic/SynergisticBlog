@@ -35,7 +35,7 @@ namespace SynergisticBlog.Controllers
                 Page = page,
                 TimeCreated = DateTime.MinValue,
             };
-            return View("Index", post);
+            return View(post);
         }
 
         [Authorize]
