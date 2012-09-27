@@ -43,7 +43,7 @@ namespace SynergisticBlog.Controllers
                 .Set("Content", post.Content);
 
             if (post.TimeCreated == DateTime.MinValue)
-            {
+            {                
                 post.TimeCreated = DateTime.Now;
                 post.UUID = System.Guid.NewGuid().ToString();
                 //_collection.Insert(post);

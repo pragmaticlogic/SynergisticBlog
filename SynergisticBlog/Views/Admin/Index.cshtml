@@ -11,7 +11,7 @@
         <legend>Post</legend>
 
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Page, new { disabled = "disabled", @readonly = "readonly" })
+            @Html.TextBoxFor(model => model.Page, new { @readonly = "readonly" })
             @Html.ValidationMessageFor(model => model.Page)
         </div>
         <div class="editor-field">
