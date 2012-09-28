@@ -75,6 +75,9 @@ namespace SynergisticBlog.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            return RedirectToAction("Index", "Home");
+
+            /*
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -83,7 +86,7 @@ namespace SynergisticBlog.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false // createPersistentCookie //);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -94,6 +97,7 @@ namespace SynergisticBlog.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+            */
         }
 
         //

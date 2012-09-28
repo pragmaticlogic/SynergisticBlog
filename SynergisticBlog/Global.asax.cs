@@ -33,6 +33,12 @@ namespace SynergisticBlog
             );*/
 
             routes.MapRoute(
+                "a", // Route name                
+                "a",
+                new { controller = "Account", action = "Logon" } // Parameter defaults
+            );
+
+            routes.MapRoute(
                 "Post", // Route name
                 //"{controller}/{action}/{id}/{page}", // URL with parameters
                 "Post/{id}/{page}",
