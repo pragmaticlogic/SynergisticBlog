@@ -26,7 +26,8 @@ namespace SynergisticBlog.Controllers
 
             var filter = @"{'Page': '" + page + "'}";
             
-            var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));            
+            //var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
+            var mgCollection = _collection.Find(MongoDB.Driver.Builders.Query.EQ("Page", page));
 
             return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated));           
         }
