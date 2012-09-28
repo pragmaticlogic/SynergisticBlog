@@ -16,7 +16,7 @@ namespace SynergisticBlog.Controllers
         {
             ViewBag.Message = "Synergistic Studio";
 
-            var filter = string.Format("{'Page': /{0/} }", page);
+            var filter = "{'Page': " + page +  "}";
             
             var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));            
 
