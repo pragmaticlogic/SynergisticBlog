@@ -86,19 +86,13 @@ a.blog_name {
     text-align: right;
 }
 
-.post_date {
-	font-size: 12px;
-	font-weight: bold;
-	color: #800000;
+.post_title {
+	font-size: 14px;	
 }
 
-.post_tags {
+.post_body {
+    padding-top: 5px;
 	font-size: 12px;
-	padding-bottom: 15px;
-}
-
-.post_tag {
-	padding: 3px 6px 10px 0px;
 }
 
 ul.tabs {

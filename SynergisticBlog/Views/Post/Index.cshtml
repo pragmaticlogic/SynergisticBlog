@@ -10,7 +10,7 @@
     var Transformer = new MarkdownSharp.Markdown();
 }
 
-<h2>@Model.Title</h2>
+<div class="post_title">@Model.Title</div>
 <small>@Model.TimeCreated.ToShortDateString()</small>
 <small>
     <script>
@@ -20,7 +20,7 @@
     </script>
     <script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
 </small>
-<div>
+<div class="post_body">
 @Html.Raw(HttpUtility.HtmlDecode(Transformer.Transform(@Model.Content)))
 </div>
 
