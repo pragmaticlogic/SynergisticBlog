@@ -7,21 +7,20 @@ using System.Configuration;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SynergisticBlog.Models;
-using MongoDB.Driver;
 
 namespace SynergisticBlog.Controllers
 {
     public class HomeController : BaseController
     {                
-        public ActionResult Index()
+        public ActionResult Index(string page)
         {
             ViewBag.Message = "Synergistic Studio";
 
-            var filter = @"{'Page': 'Blog'}";
+            var filter = string.Format("{'Page': /{0/} }", page);
             
             var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));            
 
-            return View(mgCollection.ToList<Post>());           
+            return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated));           
         }
 
         public ActionResult New()
