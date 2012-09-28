@@ -53,8 +53,8 @@ namespace SynergisticBlog
 
             routes.MapRoute(
                 "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                "{controller}/{action}/{page}", // URL with parameters
+                new { controller = "Home", action = "Index", page = UrlParameter.Optional } // Parameter defaults
             );
         }
 
@@ -63,8 +63,11 @@ namespace SynergisticBlog
             AreaRegistration.RegisterAllAreas();
 
             // Use LocalDB for Entity Framework by default
+#if DEBUG
+            Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+#else
             Database.DefaultConnectionFactory = new SqlConnectionFactory(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
-
+#endif
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }

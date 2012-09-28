@@ -17,18 +17,12 @@ namespace SynergisticBlog.Controllers
 
         public ActionResult Index(string page)
         {
-            ViewBag.Message = "Synergistic Studio";
-
-            string requestedPage = Request["page"];
+            ViewBag.Message = "Synergistic Studio";            
 
             if (string.IsNullOrEmpty(page))
             {
                 page = DEFAULT_PAGE;
-            }
-            else
-            {
-                page = requestedPage;
-            }
+            }            
 
             var filter = @"{'Page': '" + page + "'}";
             

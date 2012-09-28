@@ -4,7 +4,39 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    
+
+@section menu {
+<ul class="tabs">
+    @if (ViewData["Page"].Equals("Blog")) 
+    {
+		@:<li id="page-blog" class="active">                    
+    } else {
+        @:<li id="page-blog">
+    }
+		@Html.ActionLink("Blog", "Index", new { page = "Blog" })
+        <!--new RouteValueDictionary(new { controller = "Home", action = "Index", page = "Blog" }))-->
+	</li>
+    @if (ViewData["Page"].Equals("Projects")) 
+    {
+		@:<li id="page-project" class="active">                    
+    } else {
+        @:<li id="page-project">
+    }				
+        @Html.ActionLink("Projects", "Index", new { page = "Projects" })
+        <!--new RouteValueDictionary(new { controller = "Home", action = "Index", page = "Projects" }))-->
+	</li>
+    @if (ViewData["Page"].Equals("About"))
+    {
+		@:<li id="page-about" class="active">
+    } else {
+        @:<li id="page-about">
+    }
+		@Html.ActionLink("About", "Index", new { page = "About" })
+        <!--new RouteValueDictionary(new { controller = "Home", action = "Index", page = "About" }))-->
+	</li>
+</ul>
+}
+
 @if (HttpContext.Current.User.Identity.IsAuthenticated)
 {
     <div class="new_post">	    

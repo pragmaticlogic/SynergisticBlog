@@ -19,3 +19,6 @@ C:\Data\Projects\SynergisticBlog\SynergisticBlog\bin\System.Web.WebPages.Razor.x
 C:\Data\Projects\SynergisticBlog\SynergisticBlog\obj\Debug\SynergisticBlog.csprojResolveAssemblyReference.cache
 C:\Data\Projects\SynergisticBlog\SynergisticBlog\obj\Debug\SynergisticBlog.dll
 C:\Data\Projects\SynergisticBlog\SynergisticBlog\obj\Debug\SynergisticBlog.pdb
+C:\Data\Projects\SynergisticBlog\SynergisticBlog\bin\MarkdownSharp.dll
+C:\Data\Projects\SynergisticBlog\SynergisticBlog\bin\MongoDB.Bson.dll
+C:\Data\Projects\SynergisticBlog\SynergisticBlog\bin\MongoDB.Driver.dll
