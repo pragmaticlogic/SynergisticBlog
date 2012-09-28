@@ -87,10 +87,10 @@ a.blog_name {
 }
 
 .post_title {
-	font-size: 14px;	
+	font-size: 16px;	
     padding-top: 5px;
     padding-bottom: 5px;
-    text-decoration: dotted;
+    text-decoration: underline;
 }
 
 .post_body {    
