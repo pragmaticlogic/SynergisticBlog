@@ -8,7 +8,7 @@
 @if (HttpContext.Current.User.Identity.IsAuthenticated)
 {
     <div class="new_post">	    
-        @Html.ActionLink("New Post", "Index", "Admin", new {  page = "Blog", update = false, id = string.Empty}, null)
+        @Html.ActionLink("New Post", "Index", "Admin", new {  page = @ViewData["Page"], update = false, id = string.Empty}, null)
     </div>
 }
 
@@ -18,7 +18,7 @@
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
-            @Html.ActionLink("Edit", "Index", "Admin", new {  page = "Blog", update = true, id = item.Id}, null)
+            @Html.ActionLink("Edit", "Index", "Admin", new {  page = @ViewData["Page"], update = true, id = item.Id}, null)
         </li>
         <li style="display: inline; list-style-type: none; margin-right:10px;">
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
