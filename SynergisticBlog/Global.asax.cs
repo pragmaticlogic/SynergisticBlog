@@ -33,8 +33,14 @@ namespace SynergisticBlog
             );*/
 
             routes.MapRoute(
-                "a", // Route name                
-                "a",
+                "ax", // Route name                
+                "ax",
+                new { controller = "Account", action = "Logon" } // Parameter defaults
+            );
+
+            routes.MapRoute(
+                "ay", // Route name                
+                "ay",
                 new { controller = "Account", action = "Logon" } // Parameter defaults
             );
 

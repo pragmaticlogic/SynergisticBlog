@@ -12,10 +12,17 @@ using MongoDB.Driver;
 namespace SynergisticBlog.Controllers
 {
     public class HomeController : BaseController
-    {                
+    {
+        private string DEFAULT_PAGE = "Blog";
+
         public ActionResult Index(string page)
         {
             ViewBag.Message = "Synergistic Studio";
+
+            if (string.IsNullOrEmpty(page))
+            {
+                page = DEFAULT_PAGE;
+            }
 
             var filter = @"{'Page': '" + page + "'}";
             
