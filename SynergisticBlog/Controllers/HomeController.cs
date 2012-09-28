@@ -19,9 +19,15 @@ namespace SynergisticBlog.Controllers
         {
             ViewBag.Message = "Synergistic Studio";
 
-            if (string.IsNullOrEmpty(page))
+            string p = Request["page"];
+
+            if (string.IsNullOrEmpty(p))
             {
                 page = DEFAULT_PAGE;
+            }
+            else
+            {
+                page = p;
             }
 
             var filter = @"{'Page': '" + page + "'}";
