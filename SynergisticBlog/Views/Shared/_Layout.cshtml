@@ -40,13 +40,16 @@
 		<div class="span-24 last">
 			<ul class="tabs">
 				<li id="page-blog" class="active">
-					@Html.ActionLink("Blog", "Index", "Home", new { page = "Blog" })
+					@Html.ActionLink("Blog", "Index", "Home", 
+                    new RouteValueDictionary(new { controller = "Home", action = "Index", page = "Blog" }))
 				</li>
 				<li id="page-project" >
-                    @Html.ActionLink("Projects", "Index", "Home", new { page = "Projects" })
+                    @Html.ActionLink("Projects", "Index", "Home", 
+                    new RouteValueDictionary(new { controller = "Home", action = "Index", page = "Projects" }))
 				</li>
 				<li id="page-about" >
-					@Html.ActionLink("About", "Index", "Home", new { page = "About" })
+					@Html.ActionLink("About", "Index", "Home", 
+                    new RouteValueDictionary(new { controller = "Home", action = "Index", page = "About" }))
 				</li>
 			</ul>
 		</div>
