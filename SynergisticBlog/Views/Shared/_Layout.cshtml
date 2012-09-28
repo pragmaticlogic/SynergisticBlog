@@ -40,13 +40,13 @@
 		<div class="span-24 last">
 			<ul class="tabs">
 				<li id="page-blog" class="active">
-					<a href="/">Blog</a>
+					@Html.ActionLink("Blog", "Index", "Home", new { page = "Blog" })
 				</li>
 				<li id="page-project" >
-					<a href="/Home/Index/Projects">Projects</a>
+                    @Html.ActionLink("Projects", "Index", "Home", new { page = "Projects" })
 				</li>
 				<li id="page-about" >
-					<a href="/Home/Index/About">About</a>
+					@Html.ActionLink("About", "Index", "Home", new { page = "About" })
 				</li>
 			</ul>
 		</div>
