@@ -21,7 +21,7 @@ namespace SynergisticBlog.Controllers
 
             string requestedPage = Request["page"];
 
-            if (string.IsNullOrEmpty(requestedPage))
+            if (string.IsNullOrEmpty(page))
             {
                 page = DEFAULT_PAGE;
             }
