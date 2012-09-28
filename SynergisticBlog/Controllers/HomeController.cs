@@ -21,7 +21,7 @@ namespace SynergisticBlog.Controllers
             
             var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));            
 
-            return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated);           
+            return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated));           
         }
 
         public ActionResult New()
