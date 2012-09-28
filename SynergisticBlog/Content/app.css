@@ -140,6 +140,7 @@ html ul.tabs li.active { /*--Makes sure that the active tab does not listen to t
 
 .footer {	
 	padding: 5px 0 5px 0;
+    text-align: right;
 }
 
 .footer-heading {
