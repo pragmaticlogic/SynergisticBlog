@@ -7,6 +7,7 @@ using System.Configuration;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SynergisticBlog.Models;
+using MongoDB.Driver;
 
 namespace SynergisticBlog.Controllers
 {
@@ -16,11 +17,11 @@ namespace SynergisticBlog.Controllers
         {
             ViewBag.Message = "Synergistic Studio";
 
-            var filter = "{'Page': " + page +  "}";
+            var filter = @"{'Page': '" + page + "'}";
             
             var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));            
 
-            return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated));           
+            return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated);           
         }
 
         public ActionResult New()
