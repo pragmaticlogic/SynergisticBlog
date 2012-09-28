@@ -19,7 +19,7 @@
     </script>
     <script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
 </small>
-<h2>@Model.Title</h2>
+<div class="post_title">@Model.Title</div>
 <div class="post_body">
 @Html.Raw(HttpUtility.HtmlDecode(Transformer.Transform(@Model.Content)))
 </div>
