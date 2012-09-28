@@ -19,6 +19,56 @@
 </head>
 
 <body>
-    @RenderBody()
+    <div class="container">
+	<div id="header" onclick="location.href='/';"
+		style="cursor: pointer;">
+    </div>
+    <hr> 
+    <h2>
+        <a href="/" class="blog_name">
+        <span id="blog_name">
+            Synergistic Studio
+        </span>
+        </a>
+    </h2>
+             
+    <hr> 
+    <h2 class="alt">Learning, building and sharing .Net and iOS technologies.</h2> 
+    <hr>
+
+	<div class="header">
+		<div class="span-24 last">
+			<ul class="tabs">
+					<li id="page-blog" class="active">
+						<a href="/">Blog</a>
+					</li>
+					<li id="page-project" >
+						<a href="/projects">Projects</a>
+					</li>
+					<li id="page-about" >
+						<a href="/about">About</a>
+					</li>
+				</ul>
+		</div>
+	</div>
+
+	<div>
+		<div class="span-24 last">
+			<div class="blog_post">
+                @RenderBody()                
+            </div>
+		</div>
+	</div>
+
+    <div class="gap">
+    </div>
+
+    <div class="span-24 last">
+        <div class="footer">        						
+		    <div>Powered by <a href="https://github.com/pragmaticlogic/SynergisticBlog">SynergisticBlog</a> - Copyright 2012 Kevin Le</div>	
+	    </div>
+    </div>
+</div>
+    
 </body>
 </html>

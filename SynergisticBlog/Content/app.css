@@ -82,6 +82,10 @@ a.blog_name {
     border-bottom: 1px solid #dcdcdc;
 }
 
+.new_post {
+    text-align: right;
+}
+
 .post_date {
 	font-size: 12px;
 	font-weight: bold;
