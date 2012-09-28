@@ -88,10 +88,12 @@ a.blog_name {
 
 .post_title {
 	font-size: 14px;	
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: dotted;
 }
 
-.post_body {
-    padding-top: 5px;
+.post_body {    
 	font-size: 12px;
 }
 
