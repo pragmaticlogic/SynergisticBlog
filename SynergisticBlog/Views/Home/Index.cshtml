@@ -53,9 +53,17 @@
             @Html.ActionLink("Edit", "Index", "Admin", new {  page = @ViewData["Page"], update = true, id = item.Id}, null)
         </li>
         <li style="display: inline; list-style-type: none; margin-right:10px;">
+            <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = item.Id, @class = "post_delete" })-->
+            <a id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
+        </li>
+        <li id="post_delete_yes_" + @item.Id style="display: none; list-style-type: none; margin-right:10px;">
             <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })-->
             <a id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
+        <li id="post_delete_no_" + @item.Id style="display: inline; list-style-type: none; margin-right:10px;">
+            <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })-->
+            <a id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
+        </li>                        
         }
         <li style="display: inline; list-style-type: none; margin-right:10px;">
         @item.TimeCreated.ToShortDateString()
@@ -68,7 +76,7 @@
 
 <script>
     $('.post_delete').click(function (item) {
-        alert(item.id);
+        $('#post_delete_yes_' + item.attr('id').attr({ 'display': 'inline' }));
     });
 </script>
 
