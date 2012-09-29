@@ -53,7 +53,7 @@
             @Html.ActionLink("Edit", "Index", "Admin", new {  page = @ViewData["Page"], update = true, id = item.Id}, null)
         </li>
         <li style="display: inline; list-style-type: none; margin-right:10px;">
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })
         </li>
         }
         <li style="display: inline; list-style-type: none; margin-right:10px;">
