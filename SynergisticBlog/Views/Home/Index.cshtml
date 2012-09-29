@@ -13,8 +13,7 @@
     } else {
         @:<li id="page-blog">
     }
-		@Html.ActionLink("Blog", "Index", new { page = "Blog" })
-        <!--new RouteValueDictionary(new { controller = "Home", action = "Index", page = "Blog" }))-->
+		@Html.ActionLink("Blog", "Index", new { page = "Blog" })        
 	</li>
     @if (ViewData["Page"].Equals("Projects")) 
     {
@@ -22,8 +21,8 @@
     } else {
         @:<li id="page-project">
     }				
-        @Html.ActionLink("Projects", "Index", new { page = "Projects" })
-        <!--new RouteValueDictionary(new { controller = "Home", action = "Index", page = "Projects" }))-->
+        <!--@Html.ActionLink("Projects", "Index", new { page = "Projects" })-->
+        @Html.RouteLink("Projects", "Default", new { page = "Projects" }, null)
 	</li>
     @if (ViewData["Page"].Equals("About"))
     {
@@ -40,10 +39,11 @@
 @if (HttpContext.Current.User.Identity.IsAuthenticated)
 {
     <div class="new_post">	    
-        @Html.ActionLink("New Post", "Index", "Admin", new {  page = @ViewData["Page"], update = false, id = string.Empty}, null)
+        <!--@Html.ActionLink("New Post", "Index", "Admin", new {  page = @ViewData["Page"], update = false, id = string.Empty}, null)-->
+        <!--@Html.RouteLink("New Post", "Write", new {  page = @ViewData["Page"], update = false, id = string.Empty}, null)-->
+        @Html.RouteLink("New Post", "Write", new {  page = @ViewData["Page"], update = false}, null)
     </div>
 }
-
 
 @foreach (var item in Model) {
     <p>

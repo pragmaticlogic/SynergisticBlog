@@ -23,25 +23,24 @@ namespace SynergisticBlog
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            /*
+            
             routes.MapRoute(
                 "Write", // Route name
                 //"{controller}/{action}/{page}/{update}/{id}", // URL with parameters
                 "Write/{page}/{update}/{id}",
-                new { controller = "Admin", action = "Index" } // Parameter defaults
-            );*/
+                new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 "ax", // Route name                
                 "ax",
-                new { controller = "Account", action = "Logon" } // Parameter defaults
+                new { controller = "Account", action = "Logon" } 
             );
 
             routes.MapRoute(
                 "ay", // Route name                
                 "ay",
-                new { controller = "Account", action = "Logon" } // Parameter defaults
+                new { controller = "Account", action = "Logon" }
             );
 
             routes.MapRoute(

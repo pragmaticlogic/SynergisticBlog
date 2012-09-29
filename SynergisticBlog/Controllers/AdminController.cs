@@ -12,7 +12,9 @@ namespace SynergisticBlog.Controllers
 {
     public class AdminController : BaseController
     {
+#if !DEBUG
         [Authorize]
+#endif
         public ActionResult Index(string page, bool update, string id)
         {            
             Post post = null;
@@ -33,7 +35,9 @@ namespace SynergisticBlog.Controllers
             return View(post);
         }
 
+#if !DEBUG
         [Authorize]
+#endif
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(Post post)

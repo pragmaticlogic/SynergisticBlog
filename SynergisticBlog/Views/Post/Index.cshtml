@@ -6,6 +6,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section menu {
+<ul class="tabs">
+    <li id="page-login" class="active">
+        <a style="cursor: pointer;">View Post</a>
+    </li>
+    <li>
+        @Html.ActionLink("Back", "Index", "Home")
+    </li>
+</ul>
+}
+
 @{
     var Transformer = new MarkdownSharp.Markdown();
 }
