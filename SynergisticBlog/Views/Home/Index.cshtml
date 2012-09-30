@@ -46,7 +46,7 @@
 }
 
 @foreach (var item in Model) {
-    <p>
+    <p id = "@item.Id">
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
@@ -56,7 +56,8 @@
             <a post_id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
         <li id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
-            @Html.RouteLink("Yes, delete", "DeletePost", new { controller = "Admin", action = "DeletePost", id = item.Id, page = item.Page }, new {id = "post_delete_" + item.Id, @class = "post_delete_yes" })
+            <!--@Html.RouteLink("Yes, delete", "DeletePost", new { controller = "Admin", action = "DeletePost", id = item.Id, page = item.Page }, new {id = "post_delete_" + item.Id, @class = "post_delete_yes" })-->
+            <a post_id="@item.Id" class="post_delete_yes" style="cursor:pointer;">Yes, delete</a>
         </li>
         <li id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
             <a post_id="@item.Id" class="post_delete_no" style="cursor:pointer;">No, keep</a>
@@ -82,6 +83,11 @@
         $('li[id_2="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
         $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
         $('li[id_4="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
+    });
+
+    $('.post_delete_yes').click(function () {
+        var post_id = $(this).attr("post_id");
+        $('p.' + post_id).remove();
     });
 </script>
 

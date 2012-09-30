@@ -63,7 +63,7 @@ namespace SynergisticBlog.Controllers
         {
             var query = Query.EQ("Id", id);
             _collection.Remove(query);
-            return RedirectToAction("Index", "About");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
