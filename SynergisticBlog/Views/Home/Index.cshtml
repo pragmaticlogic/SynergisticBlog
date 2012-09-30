@@ -66,7 +66,7 @@
         @item.TimeCreated.ToShortDateString()
         </li>                    
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
-            @Html.RouteLink(@item.Title, "Post", new { controller = "Post", action = "Index", id = item.Id, page = item.Page }, null)
+            @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
         </li>        
     </p>
 }
@@ -86,6 +86,8 @@
 
     $('.post_delete_yes').click(function () {
         var post_id = $(this).attr("post_id");
+        console.log(post_id);        
+        console.log($('p.' + post_id));
         $('p.' + post_id).remove();
     });
 </script>

@@ -44,11 +44,9 @@ namespace SynergisticBlog
             );                      
             
             routes.MapRoute(
-                "Post", // Route name
-                //"{controller}/{action}/{id}/{page}", // URL with parameters
-                "Post/{id}/{page}",
-                null
-                //new { controller = "Post", action = "Index" } // Parameter defaults
+                "Post", // Route name                
+                "Post/{id}/{page}", // URL with parameters              
+                new { controller = "Post", action = "Index" } // Parameter defaults
             );            
 
             routes.MapRoute(
