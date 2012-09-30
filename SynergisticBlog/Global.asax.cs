@@ -33,13 +33,13 @@ namespace SynergisticBlog
 
             routes.MapRoute(
                 "ax", // Route name                
-                "ax",
+                "Logon",
                 new { controller = "Account", action = "Logon" } 
             );
 
             routes.MapRoute(
                 "ay", // Route name                
-                "ay",
+                "Logoff",
                 new { controller = "Account", action = "Logon" }
             );
 
@@ -52,7 +52,7 @@ namespace SynergisticBlog
 
             routes.MapRoute(
                 "DeletePost", // Route name                
-                "DeletePost/{id}",
+                "DeletePost/{id}/{page}",
                 new { controller = "Admin", action = "DeletePost" } // Parameter defaults
             );
 
