@@ -54,12 +54,12 @@
         </li>
         <li style="display: inline; list-style-type: none; margin-right:10px;">
             <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = item.Id, @class = "post_delete" })-->
-            <a id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
+            <a id="@item.Id" id_2="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
-        <li id="post_delete_yes_" + @item.Id style="display: none; list-style-type: none; margin-right:10px;">
+        <li id="post_delete_yes_" + @item.Id id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
             @Html.ActionLink("Yes, Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })            
         </li>
-        <li id="post_delete_no_" + @item.Id style="display: none; list-style-type: none; margin-right:10px;">
+        <li id="post_delete_no_" + @item.Id id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
             <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })-->
             <a id="@item.Id" class="post_delete" style="cursor:pointer;">No, keep</a>
         </li>                        
@@ -74,9 +74,9 @@
 }
 
 <script>
-    $('.post_delete').click(function (item) {
-        //$('#post_delete_yes_' + item.attr('id').attr({ 'display': 'inline' }));
-        console.log(item);
+    $('.post_delete').click(function () {
+        $('#post_delete_yes_' + this.attr('id_2').attr({ 'display': 'inline' }));
+        $('#post_delete_no_' + this.attr('id_2').attr({ 'display': 'inline' }));
     });
 </script>
 
