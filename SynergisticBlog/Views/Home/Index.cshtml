@@ -46,26 +46,26 @@
 }
 
 @foreach (var item in Model) {
-    <ul ulid = "@item.Id">
+    <ul id = "@item.Id" class="grid">
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
             @Html.ActionLink("Edit", "Index", "Admin", new {  page = @ViewData["Page"], update = true, id = item.Id}, null)
         </li>
-        <li id_2="@item.Id" style="display: inline; list-style-type: none; margin-right:10px;">            
+        <li id_2="@item.Id" style="display: inline;">            
             <a post_id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
-        <li id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
+        <li id_3="@item.Id" style="display: none;">            
             <a post_id="@item.Id" class="post_delete_yes" style="cursor:pointer;">Yes, delete</a>
         </li>
-        <li id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
+        <li id_4="@item.Id" style="display: none;">            
             <a post_id="@item.Id" class="post_delete_no" style="cursor:pointer;">No, keep</a>
         </li>                        
         }
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
+        <li style="display: inline;">
         @item.TimeCreated.ToShortDateString()
         </li>                    
-        <li style="display: inline; list-style-type: none; margin-right:10px;">            
+        <li style="display: inline;">            
             @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
         </li>        
     </ul>
@@ -85,11 +85,8 @@
     });
 
     $('.post_delete_yes').click(function () {
-        var post_id = $(this).attr("post_id");
-        console.log(post_id);        
-        console.log($('ul[ulid="' + post_id + '"]'));
-        console.log($('ul[ulid="' + post_id + '"]').children());
-        $('ul[ulid="' + post_id + '"]').remove();
+        var post_id = $(this).attr("post_id");        
+        $('ul#' + post_id).remove();
     });
 </script>
 
