@@ -58,7 +58,7 @@ namespace SynergisticBlog.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        //[HttpPost]
         public ActionResult DeletePost(string id, string page)
         {
             var query = Query.EQ("Id", id);
