@@ -52,7 +52,7 @@ namespace SynergisticBlog
 
             routes.MapRoute(
                 "DeletePost", // Route name                
-                "DeletePost/{uuid}",
+                "DeletePost/{id}",
                 new { controller = "Admin", action = "DeletePost" } // Parameter defaults
             );
 
