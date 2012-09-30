@@ -32,13 +32,13 @@ namespace SynergisticBlog
             );
 
             routes.MapRoute(
-                "ax", // Route name                
+                "Logon", // Route name                
                 "Logon",
                 new { controller = "Account", action = "Logon" } 
             );
 
             routes.MapRoute(
-                "ay", // Route name                
+                "Logoff", // Route name                
                 "Logoff",
                 new { controller = "Account", action = "Logon" }
             );
