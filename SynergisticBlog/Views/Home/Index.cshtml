@@ -88,6 +88,7 @@
         var post_id = $(this).attr("post_id");
         console.log(post_id);        
         console.log($('p[pid="' + post_id + '"]'));
+        console.log($('p[pid="' + post_id + '"]').children());
         $('p[pid="' + post_id + '"]').remove();
     });
 </script>
