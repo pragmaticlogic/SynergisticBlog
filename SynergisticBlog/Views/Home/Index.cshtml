@@ -72,15 +72,13 @@
 }
 
 <script>
-    $('.post_delete').click(function () {
-        //$(this).css({ 'display': 'none' });
+    $('.post_delete').click(function () {        
         $('li[id_2="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
         $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
         $('li[id_4="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
     });
 
-    $('.post_delete_no').click(function () {
-        //$(this).css({ 'display': 'none' });
+    $('.post_delete_no').click(function () {        
         $('li[id_2="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
         $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
         $('li[id_4="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
