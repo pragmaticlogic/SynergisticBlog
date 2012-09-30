@@ -46,7 +46,7 @@
 }
 
 @foreach (var item in Model) {
-    <ul id = "@item.Id">
+    <ul ulid = "@item.Id">
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
