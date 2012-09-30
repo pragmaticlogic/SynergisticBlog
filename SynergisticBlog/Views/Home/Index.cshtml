@@ -85,8 +85,19 @@
     });
 
     $('.post_delete_yes').click(function () {
-        var post_id = $(this).attr("post_id");        
-        $('ul#' + post_id).remove();
+        var post_id = $(this).attr("post_id");
+        $.ajax({
+            url: '/Admin/DeletePost/' + post_id,
+            type: 'post',
+            success: function (data) {
+                $('ul#' + post_id).remove();
+            },
+            statusCode: {
+                404: function () {
+                    alert("page not found");
+                }
+            }
+        });        
     });
 </script>
 
