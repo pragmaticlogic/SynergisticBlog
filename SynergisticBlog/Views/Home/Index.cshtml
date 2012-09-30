@@ -66,7 +66,7 @@
         @item.TimeCreated.ToShortDateString()
         </li>                    
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
-            @Html.RouteLink(@item.Title, "Post", new { controller = "Admin", action = "DeletePost", id = item.Id, page = item.Page }, null)
+            @Html.RouteLink(@item.Title, "Post", new { controller = "Post", action = "Index", id = item.Id, page = item.Page }, null)
         </li>        
     </p>
 }
