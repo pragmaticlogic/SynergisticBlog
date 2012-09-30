@@ -55,8 +55,7 @@
         <li id_2="@item.Id" style="display: inline; list-style-type: none; margin-right:10px;">            
             <a post_id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
-        <li id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
-            <!--@Html.RouteLink("Yes, delete", "DeletePost", new { controller = "Admin", action = "DeletePost", id = item.Id, page = item.Page }, new {id = "post_delete_" + item.Id, @class = "post_delete_yes" })-->
+        <li id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
             <a post_id="@item.Id" class="post_delete_yes" style="cursor:pointer;">Yes, delete</a>
         </li>
         <li id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
