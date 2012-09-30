@@ -59,9 +59,9 @@ namespace SynergisticBlog.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult DeletePost(string itemId)
+        public ActionResult DeletePost(string uuid)
         {
-            var query = Query.EQ("UUID", itemId);
+            var query = Query.EQ("UUID", uuid);
             _collection.Remove(query);
             return RedirectToAction("Index", "Home");
         }
