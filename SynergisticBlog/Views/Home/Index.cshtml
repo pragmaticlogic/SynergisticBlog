@@ -56,7 +56,7 @@
             <a post_id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
         <li id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
-            @Html.ActionLink("Yes, Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete_yes" })            
+            @Html.ActionLink("Yes, delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete_yes" })            
         </li>
         <li id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
             <a post_id="@item.Id" class="post_delete_no" style="cursor:pointer;">No, keep</a>
@@ -73,15 +73,17 @@
 
 <script>
     $('.post_delete').click(function () {
-        $(this).css({ 'display': 'none' });
+        //$(this).css({ 'display': 'none' });
+        $('li[id_2="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
         $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
         $('li[id_4="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
     });
 
     $('.post_delete_no').click(function () {
-        $(this).css({ 'display': 'none' });
+        //$(this).css({ 'display': 'none' });
         $('li[id_2="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
         $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
+        $('li[id_4="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
     });
 </script>
 
