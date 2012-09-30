@@ -42,21 +42,20 @@ namespace SynergisticBlog
                 "Logoff",
                 new { controller = "Account", action = "Logon" }
             );
-
-            /*
+           
             routes.MapRoute(
                 "DeletePost", // Route name
                 "{controller}/{action}/{id}/{page}", 
                 null //defaults                
             );
-
+            
             routes.MapRoute(
                 "Post", // Route name
                 "{controller}/{action}/{id}/{page}", // URL with parameters
                 //"Post/{id}/{page}",
                 null
                 //new { controller = "Post", action = "Index" } // Parameter defaults
-            );*/            
+            );            
 
             routes.MapRoute(
                 "Default", // Route name
