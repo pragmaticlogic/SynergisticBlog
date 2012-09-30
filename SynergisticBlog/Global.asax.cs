@@ -51,8 +51,9 @@ namespace SynergisticBlog
             );
 
             routes.MapRoute(
-                "DeletePost", // Route name                
-                "DeletePost/{id}/{page}",
+                "DeletePost", // Route name
+                "{controller}/{action}/{id}/{page}", // URL with parameters
+                //"DeletePost/{id}/{page}",
                 new { controller = "Admin", action = "DeletePost" } // Parameter defaults
             );
 
