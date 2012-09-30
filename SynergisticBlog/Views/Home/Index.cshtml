@@ -46,7 +46,7 @@
 }
 
 @foreach (var item in Model) {
-    <p id = "@item.Id">
+    <p pid = "@item.Id">
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
@@ -88,7 +88,7 @@
         var post_id = $(this).attr("post_id");
         console.log(post_id);        
         console.log($('p#' + post_id));
-        $('p#' + post_id).remove();
+        $('p[pid="' + post_id + '"]').remove();
     });
 </script>
 
