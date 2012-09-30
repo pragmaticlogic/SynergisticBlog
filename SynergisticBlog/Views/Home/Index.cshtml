@@ -52,16 +52,14 @@
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
             @Html.ActionLink("Edit", "Index", "Admin", new {  page = @ViewData["Page"], update = true, id = item.Id}, null)
         </li>
-        <li style="display: inline; list-style-type: none; margin-right:10px;">
-            <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = item.Id, @class = "post_delete" })-->
-            <a id="@item.Id" id_2="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
+        <li id_2="@item.Id" style="display: inline; list-style-type: none; margin-right:10px;">            
+            <a post_id="@item.Id" class="post_delete" style="cursor:pointer;">Delete</a>
         </li>
-        <li id="post_delete_yes_" + @item.Id id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
-            @Html.ActionLink("Yes, Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })            
+        <li id_3="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
+            @Html.ActionLink("Yes, Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete_yes" })            
         </li>
-        <li id="post_delete_no_" + @item.Id id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">
-            <!--@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {id = "post_delete_" + item.Id, @class = "post_delete" })-->
-            <a id="@item.Id" class="post_delete" style="cursor:pointer;">No, keep</a>
+        <li id_4="@item.Id" style="display: none; list-style-type: none; margin-right:10px;">            
+            <a post_id="@item.Id" class="post_delete_no" style="cursor:pointer;">No, keep</a>
         </li>                        
         }
         <li style="display: inline; list-style-type: none; margin-right:10px;">
@@ -75,11 +73,15 @@
 
 <script>
     $('.post_delete').click(function () {
-        console.log('click');
-        $('li[id_3="' + $(this).attr("id_2") + '"]').css({ 'display': 'inline' });
-        $('li[id_4="' + $(this).attr("id_2") + '"]').css({ 'display': 'inline' });
-        console.log($('li[id_3="' + $(this).attr("id_2") + '"]'));
-        console.log($('li[id_4="' + $(this).attr("id_2") + '"]'));
+        $(this).css({ 'display': 'none' });
+        $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
+        $('li[id_4="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
+    });
+
+    $('.post_delete_no').click(function () {
+        $(this).css({ 'display': 'none' });
+        $('li[id_2="' + $(this).attr("post_id") + '"]').css({ 'display': 'inline' });
+        $('li[id_3="' + $(this).attr("post_id") + '"]').css({ 'display': 'none' });
     });
 </script>
 
