@@ -46,7 +46,7 @@
 }
 
 @foreach (var item in Model) {
-    <p pid = "@item.Id">
+    <ul id = "@item.Id">
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
@@ -68,7 +68,7 @@
         <li style="display: inline; list-style-type: none; margin-right:10px;">            
             @Html.RouteLink(@item.Title, "Post", new { item.Id, item.Page }, null)
         </li>        
-    </p>
+    </ul>
 }
 
 <script>
@@ -87,9 +87,9 @@
     $('.post_delete_yes').click(function () {
         var post_id = $(this).attr("post_id");
         console.log(post_id);        
-        console.log($('p[pid="' + post_id + '"]'));
-        console.log($('p[pid="' + post_id + '"]').children());
-        $('p[pid="' + post_id + '"]').remove();
+        console.log($('ul[ulid="' + post_id + '"]'));
+        console.log($('ul[ulid="' + post_id + '"]').children());
+        $('ul[ulid="' + post_id + '"]').remove();
     });
 </script>
 
