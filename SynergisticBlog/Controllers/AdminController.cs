@@ -61,8 +61,7 @@ namespace SynergisticBlog.Controllers
         [HttpPost]
         public JsonResult DeletePost(string id)
         {
-            var query = Query.EQ("UUID", id);
-            //var query = Query.EQ("_id", id);
+            var query = Query.EQ("_id", ObjectId.Parse(id));
             _collection.Remove(query);
             //return RedirectToAction("Index", "Home");
             return Json(new { success = "true" });
