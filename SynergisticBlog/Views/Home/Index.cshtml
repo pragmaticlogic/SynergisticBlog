@@ -88,7 +88,7 @@
         var post_id = $(this).attr("post_id");
         console.log('delete ' + post_id);
         $.ajax({
-            url: '/Admin/DeletePost/' + post_id,
+            url: '/DeletePost/' + post_id,
             type: 'post',
             success: function (data) {
                 $('ul#' + post_id).remove();
