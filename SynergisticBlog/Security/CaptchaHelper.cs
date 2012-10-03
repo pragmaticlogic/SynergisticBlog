@@ -12,6 +12,7 @@ namespace SynergisticBlog.Security
         internal const string SessionKeyPrefix = "_Captcha";
         private const string ImgFormat = "<img src=\"{0}\" />";
 
+        //public static string Captcha(this HtmlHelper html, string name)
         public static string Captcha(this HtmlHelper html, string name)
         {
             string challengeGuid = Guid.NewGuid().ToString();
