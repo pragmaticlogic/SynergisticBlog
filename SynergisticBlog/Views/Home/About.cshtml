@@ -1,4 +1,5 @@
-﻿@using SynergisticBlog.Security;
+﻿@using System.Web.Mvc.Html;
+@using SynergisticBlog.Security;
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +8,7 @@
 
 @using (Html.BeginForm("Submit", "Comment"))
 {
-    Html.Captcha("myCaptcha");
+    @Html.Captcha("myCaptcha");
     <div>Please enter the letters</div>        
     <div>@Html.TextBox("attempt")</div>
     <div><input type="submit" value="submit" /></div>
