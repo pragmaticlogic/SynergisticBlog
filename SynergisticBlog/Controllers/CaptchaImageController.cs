@@ -24,7 +24,7 @@ namespace SynergisticBlog.Controllers
             {
                 using (Bitmap bmp = new Bitmap(ImageWidth, ImageHeight))
                 using (Graphics g = Graphics.FromImage(bmp))
-                using (Font font = new Font("Times New Roman", 12.0f))
+                using (Font font = new Font("Times New Roman", 1.0f))
                 {
                     g.Clear(Color.Silver);
 
