@@ -46,7 +46,26 @@ namespace SynergisticBlog.Controllers
 
         public ActionResult About()
         {
+            string SessionKeyPrefix = "_Captcha";
+            string challengeGuid = Guid.NewGuid().ToString();
+
+            Session[SessionKeyPrefix + challengeGuid] = MakeRandomSolution();
+            ViewData["challengeGuid"] = challengeGuid; 
             return View();
-        }        
+        }
+
+        private static string MakeRandomSolution()
+        {
+            Random rng = new Random();
+            int length = rng.Next(5, 7);
+            char[] buf = new char[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                buf[i] = (char)('a' + rng.Next(26));
+            }
+
+            return new string(buf);
+        }
     }
 }

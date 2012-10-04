@@ -11,19 +11,20 @@ namespace SynergisticBlog.Security
     {
         internal const string SessionKeyPrefix = "_Captcha";
         private const string ImgFormat = "<img src=\"{0}\" />";
-
+        
         //public static string Captcha(this HtmlHelper html, string name)
-        public static string Captcha(this HtmlHelper html, string name)
+        /*
+        public static string Captcha(ViewContext viewContext, string name)
         {
             string challengeGuid = Guid.NewGuid().ToString();
 
-            var session = html.ViewContext.HttpContext.Session;
+            var session = viewContext.HttpContext.Session;
             session[SessionKeyPrefix + challengeGuid] = MakeRandomSolution();
 
-            var urlHelper = new UrlHelper(html.ViewContext.RequestContext);
+            var urlHelper = new UrlHelper(viewContext.RequestContext);
             string url = urlHelper.Action("Render", "CaptchaImage", new { challengeGuid });
-            return string.Format(ImgFormat, url) + html.Hidden(name, challengeGuid);
-        }
+            return string.Format(ImgFormat, url) + Html.Hidden(name, challengeGuid);
+        }*/
 
         private static string MakeRandomSolution()
         {

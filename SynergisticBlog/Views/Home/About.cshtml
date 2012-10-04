@@ -1,5 +1,4 @@
-﻿@using System.Web.Mvc.Html;
-@using SynergisticBlog.Security;
+﻿@using SynergisticBlog.Security;
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +6,9 @@
 }
 
 @using (Html.BeginForm("Submit", "Comment"))
-{
-    @Html.Captcha("myCaptcha");
+{   
+    <img src="/CaptchaImage/Render?challengeGuid=@ViewData["challengeGuid"]" />
+    <input type="hidden" name="myCaptcha" id="myCaptcha" value="@ViewData["challengeGuid"]" />
     <div>Please enter the letters</div>        
     <div>@Html.TextBox("attempt")</div>
     <div><input type="submit" value="submit" /></div>
