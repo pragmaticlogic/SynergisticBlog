@@ -5,6 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section menu {
+<ul class="tabs">
+    <li id="page-login" class="active">
+        <a style="cursor: pointer;">About</a>
+    </li>
+    <li>
+        @Html.ActionLink("Back", "Index", "Home")
+    </li>
+</ul>
+}
+
 @using (Html.BeginForm("Submit", "Comment"))
 {   
     <img src="/CaptchaImage/Render?challengeGuid=@ViewData["challengeGuid"]" />
