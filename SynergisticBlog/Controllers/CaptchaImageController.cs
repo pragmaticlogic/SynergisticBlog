@@ -12,7 +12,7 @@ namespace SynergisticBlog.Controllers
     public class CaptchaImageController : Controller
     {
         private const int ImageWidth = 200, ImageHeight = 70;
-        private const string FontFamily = "Rockwell";
+        private const string FontFamily = "Tahoma, Geneva, sans-serif";
         private readonly static Brush Foreground = Brushes.Navy;
         private readonly static Brush Background = Brushes.Navy;
 
