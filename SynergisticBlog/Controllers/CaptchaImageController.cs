@@ -11,8 +11,7 @@ namespace SynergisticBlog.Controllers
 {
     public class CaptchaImageController : Controller
     {
-        private const int ImageWidth = 200, ImageHeight = 70;
-        private const string FontFamily = "Tahoma, Geneva, sans-serif";
+        private const int ImageWidth = 200, ImageHeight = 70;        
         private readonly static Brush Foreground = Brushes.Navy;
         private readonly static Brush Background = Brushes.Navy;
 
@@ -25,7 +24,7 @@ namespace SynergisticBlog.Controllers
             {
                 using (Bitmap bmp = new Bitmap(ImageWidth, ImageHeight))
                 using (Graphics g = Graphics.FromImage(bmp))
-                using (Font font = new Font(FontFamily, 1f))
+                using (Font font = new Font("Times New Roman", 12.0f))
                 {
                     g.Clear(Color.Silver);
 
@@ -35,7 +34,7 @@ namespace SynergisticBlog.Controllers
                     float bestFontSize = Math.Min(ImageWidth / testSize.Width,
                         ImageHeight / testSize.Height) * 0.95f;
 
-                    using (Font finalFont = new Font(FontFamily, bestFontSize))
+                    using (Font finalFont = new Font("Times New Roman", bestFontSize))
                     {
                         finalSize = g.MeasureString(solution, finalFont);
                     }
