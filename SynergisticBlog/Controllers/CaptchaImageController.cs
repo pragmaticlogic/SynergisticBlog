@@ -45,7 +45,7 @@ namespace SynergisticBlog.Controllers
 
                     using (GraphicsPath path = new GraphicsPath())
                     {
-                        path.AddString(solution, new FontFamily(FontFamily), 0,
+                        path.AddString(solution, new FontFamily("Times New Roman"), 0,
                             bestFontSize, textTopLeft, StringFormat.GenericDefault);
 
                         g.SmoothingMode = SmoothingMode.HighQuality;
