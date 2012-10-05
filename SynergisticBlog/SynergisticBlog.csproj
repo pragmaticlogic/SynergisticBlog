@@ -127,8 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app.css" />
+    <Content Include="Content\css\css3-buttons.css" />
     <Content Include="Content\fancy.css" />
     <Content Include="Content\ie.css" />
+    <Content Include="Content\images\google+-ui-sprite-colour.png" />
+    <Content Include="Content\images\google+-ui-sprite-gray.png" />
+    <Content Include="Content\images\toggle.png" />
     <Content Include="Content\prettify.css" />
     <Content Include="Content\print.css" />
     <Content Include="Content\pygment_trac.css" />
