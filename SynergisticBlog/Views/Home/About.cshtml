@@ -21,9 +21,7 @@
     <img src="/CaptchaImage/Render?challengeGuid=@ViewData["challengeGuid"]" />
     <input type="hidden" name="myCaptcha" id="myCaptcha" value="@ViewData["challengeGuid"]" />
     <div>Please enter the letters</div>        
-    <div>@Html.TextBox("attempt")</div>
-    <div>
-        <!--<input type="submit" value="Submit" />-->
-        <button class="action blue"><span class="label">Send Message</span></button>
-    </div>
+    <div>@Html.TextBox("attempt")</div>    
+    <!--<input type="submit" value="Submit" />-->
+    <button class="action blue"><span class="label">Send Message</span></button>    
 }    
