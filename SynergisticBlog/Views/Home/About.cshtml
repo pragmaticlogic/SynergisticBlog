@@ -22,14 +22,14 @@
         <label>Your Name</label>
     </div>
     <div class="editor-field">
-       <input class="text-box single-line" id="Name" name="name" type="text" value="" />
+       <input class="text text-box single-line" id="Name" name="name" type="text" value="" />
     </div>
     
     <div class="editor-label">
         <label>Your Email</label>
     </div>
     <div class="editor-field">
-       <input class="text-box single-line" id="Email" name="email" type="text" value="" />
+       <input class="text text-box single-line" id="Email" name="email" type="text" value="" />
     </div>
 
     <div class="editor-label">
@@ -39,9 +39,12 @@
         <textarea id="Content" name="Content"></textarea>        
     </div>
     
+    <div class="editor-label">
+        <label>Prevent Spam</label>
+    </div>
     <img src="/CaptchaImage/Render?challengeGuid=@ViewData["challengeGuid"]" />
     <input type="hidden" name="myCaptcha" id="myCaptcha" value="@ViewData["challengeGuid"]" />
-    <div>Please enter the letters</div>        
+    <div>Please enter the letters above</div>        
     <div>@Html.TextBox("attempt")</div>    
     <a href="#" class="button middle"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
     <br style="clear:both;" />
