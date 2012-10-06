@@ -39,7 +39,7 @@
         @Html.LabelFor(model => model.Title)
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Title, new { style = "width: 1500px;" })
+        @Html.EditorFor(model => model.Title)
         @Html.ValidationMessageFor(model => model.Title)
     </div>
 
@@ -47,7 +47,7 @@
         @Html.LabelFor(model => model.Content)
     </div>
     <div class="editor-field">
-        @Html.TextAreaFor(model => model.Content, new { rows = "60", cols = "200" })
+        @Html.TextAreaFor(model => model.Content)
         @Html.ValidationMessageFor(model => model.Content)
     </div>        
     <div>
