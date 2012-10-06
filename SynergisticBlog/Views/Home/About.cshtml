@@ -18,11 +18,31 @@
 
 @using (Html.BeginForm("Submit", "Comment"))
 {   
+    <div class="editor-label">
+        <label>Your Name</label>
+    </div>
+    <div class="editor-field">
+       <input class="text-box single-line" id="Name" name="name" type="text" value="" />
+    </div>
+    
+    <div class="editor-label">
+        <label>Your Email</label>
+    </div>
+    <div class="editor-field">
+       <input class="text-box single-line" id="Email" name="email" type="text" value="" />
+    </div>
+
+    <div class="editor-label">
+        <label>Message</label>
+    </div>
+    <div class="editor-field">
+        <textarea cols="200" id="Content" name="Content" rows="30"></textarea>        
+    </div>
+    
     <img src="/CaptchaImage/Render?challengeGuid=@ViewData["challengeGuid"]" />
     <input type="hidden" name="myCaptcha" id="myCaptcha" value="@ViewData["challengeGuid"]" />
     <div>Please enter the letters</div>        
     <div>@Html.TextBox("attempt")</div>    
-    <!--<input type="submit" value="Submit" />-->
     <a href="#" class="button middle"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
     <br style="clear:both;" />
     <div>@Html.ActionLink("Back to List", "Index", "Home")</div>               

@@ -12,8 +12,7 @@ namespace SynergisticBlog.Controllers
     public class CaptchaImageController : Controller
     {
         private const int ImageWidth = 170, ImageHeight = 50;        
-        private readonly static Brush Foreground = Brushes.Navy;
-        //private readonly static Brush Background = Brushes.Navy;
+        private readonly static Brush Foreground = Brushes.Navy;        
 
         public void Render(string challengeGuid)
         {
