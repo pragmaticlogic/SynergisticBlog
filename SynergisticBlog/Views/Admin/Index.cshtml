@@ -24,7 +24,7 @@
         @Html.LabelFor(model => model.Page)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.Page, new { @readonly = "readonly" })
+        @Html.TextBoxFor(model => model.Page, new { @readonly = "readonly", @class = "title_post title_post_readonly" })
         @Html.ValidationMessageFor(model => model.Page)
     </div>
     <div class="editor-field">
@@ -39,7 +39,7 @@
         @Html.LabelFor(model => model.Title)
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Title, new { @class = "text text-box single-line" })
+        @Html.EditorFor(model => model.Title, new { @class = "title_post" })
         @Html.ValidationMessageFor(model => model.Title)
     </div>
 
@@ -51,9 +51,9 @@
         @Html.ValidationMessageFor(model => model.Content)
     </div>        
     <div>
-        <input type="submit" value="Submit" />        
+        <input type="submit" value="Submit" class="submit_post"/>        
     </div>    
-    <div>@Html.ActionLink("Back to List", "Index", "Home")</div>   
+    <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>   
 }
 
 

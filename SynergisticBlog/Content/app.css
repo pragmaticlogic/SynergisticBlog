@@ -88,8 +88,18 @@ textarea.text_post {
     padding: 5px;
 }
 
-input.text-box {
-    width: 390px;
+input.title_post {
+    width: 895px;
+    padding: 5px;
+}
+
+input.title_post_readonly {
+    color: #dcdcdc;
+}
+
+input.submit_post {
+    font-size: 14px;
+    font-weight: bold;
     padding: 5px;
 }
 
