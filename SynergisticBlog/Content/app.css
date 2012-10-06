@@ -94,7 +94,10 @@ input.title_post {
 }
 
 input.title_post_readonly {
+    width: 395px;
+    padding: 5px;
     color: #dcdcdc;
+    border: dotted 1px #dcdcdc;
 }
 
 input.submit_post {
