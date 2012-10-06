@@ -11,9 +11,9 @@ namespace SynergisticBlog.Controllers
 {
     public class CaptchaImageController : Controller
     {
-        private const int ImageWidth = 200, ImageHeight = 70;        
+        private const int ImageWidth = 170, ImageHeight = 50;        
         private readonly static Brush Foreground = Brushes.Navy;
-        private readonly static Brush Background = Brushes.Navy;
+        //private readonly static Brush Background = Brushes.Navy;
 
         public void Render(string challengeGuid)
         {
@@ -24,9 +24,9 @@ namespace SynergisticBlog.Controllers
             {
                 using (Bitmap bmp = new Bitmap(ImageWidth, ImageHeight))
                 using (Graphics g = Graphics.FromImage(bmp))
-                using (Font font = new Font("Times New Roman", 1.0f))
+                using (Font font = new Font("Times New Roman", 0.8f))
                 {
-                    g.Clear(Color.Silver);
+                    g.Clear(Color.LightSlateGray);
 
                     SizeF finalSize;
                     SizeF testSize = g.MeasureString(solution, font);
