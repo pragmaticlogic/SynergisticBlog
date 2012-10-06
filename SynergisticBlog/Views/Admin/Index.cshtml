@@ -50,11 +50,11 @@
         @Html.TextAreaFor(model => model.Content, new { rows = "20", cols = "100" })
         @Html.ValidationMessageFor(model => model.Content)
     </div>        
-    <p>
+    <div>
         <!--<input type="submit" value="Submit" />-->
         <div><button class="action blue"><span class="label">Send Message</span></button></div>
         <div>@Html.ActionLink("Back to List", "Index", "Home")</div>
-    </p>    
+    </div>    
 }
 
 
