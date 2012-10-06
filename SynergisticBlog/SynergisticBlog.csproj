@@ -133,6 +133,7 @@
     <Content Include="Content\images\google+-ui-sprite-colour.png" />
     <Content Include="Content\images\google+-ui-sprite-gray.png" />
     <Content Include="Content\images\google-ui-sprite-colour.png" />
+    <Content Include="Content\images\google-ui-sprite-gray.png" />
     <Content Include="Content\images\toggle.png" />
     <Content Include="Content\prettify.css" />
     <Content Include="Content\print.css" />

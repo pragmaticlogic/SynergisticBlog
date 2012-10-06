@@ -356,7 +356,7 @@ button.red:active .label,
 .ddm span.icon, 
 button span.icon, 
 .button span.icon {
-	background-image: url(../images/google+-ui-sprite-gray.png);
+	background-image: url(../images/google-ui-sprite-gray.png);
 	
 	display: inline-block;
 	margin: 0 7px;
@@ -380,7 +380,7 @@ button span.icon,
 .ddm:hover span.icon, 
 button:hover span.icon, 
 .button:hover span.icon {
-	background-image: url(../images/google+-ui-sprite-colour.png);
+	background-image: url(../images/google-ui-sprite-colour.png);
 }
 
 
