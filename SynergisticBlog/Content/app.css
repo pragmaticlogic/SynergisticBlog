@@ -82,6 +82,12 @@ a.blog_name {
     border-bottom: 1px solid #dcdcdc;
 }
 
+textarea.text_post {
+    width: 700px;
+    height:500px;
+    padding:5px;
+}
+
 .new_post {
     text-align: right;
 }
