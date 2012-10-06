@@ -26,7 +26,7 @@ namespace SynergisticBlog.Controllers
                 using (Graphics g = Graphics.FromImage(bmp))
                 using (Font font = new Font("Times New Roman", 0.8f))
                 {
-                    g.Clear(Color.LightSlateGray);
+                    g.Clear(Color.GhostWhite);
 
                     SizeF finalSize;
                     SizeF testSize = g.MeasureString(solution, font);
