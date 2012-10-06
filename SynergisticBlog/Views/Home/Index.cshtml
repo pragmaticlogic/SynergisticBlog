@@ -7,21 +7,30 @@
 
 @section menu {
 <ul class="tabs">
-    <li id="page-blog" class="active">
+    @if (ViewData["Page"].Equals("Blog")) 
+    {
+		@:<li id="page-blog" class="active">                    
+    } else {
+        @:<li id="page-blog">
+    }
 		@Html.ActionLink("Blog", "Index", new { page = "Blog" })        
 	</li>
-
-    <li id="page-project">
+    @if (ViewData["Page"].Equals("Projects")) 
+    {
+		@:<li id="page-project" class="active">                    
+    } else {
+        @:<li id="page-project">
+    }				
+        <!--@Html.ActionLink("Projects", "Index", new { page = "Projects" })-->
         @Html.RouteLink("Projects", "Default", new { page = "Projects" }, null)
-    </li>
-
+	</li>
     <li id="page-about">
         @Html.ActionLink("About", "About", new { page = "About" })
     </li>
 
     <li id="page-contact">
         @Html.ActionLink("Contact", "Contact", new { page = "Contact" })
-    </li>    
+    </li>
 </ul>
 }
 
