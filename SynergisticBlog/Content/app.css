@@ -52,7 +52,7 @@ a:hover small {
   color:#777;
 }
 
-input[type="submit"] { 
+.btn { 
     height: 15px;    
 }
 
