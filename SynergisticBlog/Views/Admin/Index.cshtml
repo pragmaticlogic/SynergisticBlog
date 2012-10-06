@@ -39,7 +39,7 @@
         @Html.LabelFor(model => model.Title)
     </div>
     <div class="editor-field">
-        @new HtmlString(Html.EditorFor(model => model.Title).ToString().Replace("class=\"text-box single-line\"", 
+        @new System.Web.HtmlString(Html.EditorFor(model => model.Title).ToString().Replace("class=\"text-box single-line\"", 
             "class='title_post'"))
         @Html.ValidationMessageFor(model => model.Title)
     </div>
