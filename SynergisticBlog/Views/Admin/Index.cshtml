@@ -39,7 +39,7 @@
         @Html.LabelFor(model => model.Title)
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Title, new { @class = "text" })
+        @Html.EditorFor(model => model.Title, new { @class = "text text-box single-line" })
         @Html.ValidationMessageFor(model => model.Title)
     </div>
 
