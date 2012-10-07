@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using System.Configuration;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Driver.Builders;
 using SynergisticBlog.Models;
-using MongoDB.Driver;
 
 namespace SynergisticBlog.Controllers
 {
@@ -45,8 +45,10 @@ namespace SynergisticBlog.Controllers
         }
 
         public ActionResult About()
-        {             
-            return View();
+        {
+            var query = Query.EQ("Key", "About");
+            var item = _collectionItem.FindOne(query);
+            return View(item);
         }
 
         public ActionResult Contact()
