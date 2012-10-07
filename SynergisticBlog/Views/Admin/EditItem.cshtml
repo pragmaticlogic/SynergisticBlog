@@ -1,0 +1,46 @@
+﻿@model SynergisticBlog.Models.Item
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+@section menu {
+<ul class="tabs">
+    <li id="page-login" class="active">
+        <a style="cursor: pointer;">New Post</a>
+    </li>
+    <li>
+        @Html.ActionLink("Back", "Index", "Home")
+    </li>
+</ul>
+}
+
+@using (Html.BeginForm("Create", "Admin", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Key)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Key, new { @readonly = "readonly", @class = "title_post_readonly" })
+        @Html.ValidationMessageFor(model => model.Key)
+    </div>
+   
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Value)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Value, new { @class = "text_post" })
+        @Html.ValidationMessageFor(model => model.Value)
+    </div>        
+    <div>
+        <input type="submit" value="Submit" class="submit_post"/>        
+    </div>    
+    <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>   
+}
+
+
+
+

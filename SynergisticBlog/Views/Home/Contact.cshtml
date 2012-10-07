@@ -1,0 +1,52 @@
+﻿@using SynergisticBlog.Security;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section menu {
+<ul class="tabs">
+    <li id="page-login" class="active">
+        <a style="cursor: pointer;">Contact</a>
+    </li>
+    <li>
+        @Html.ActionLink("Back", "Index", "Home")
+    </li>
+</ul>
+}
+
+@using (Html.BeginForm("Submit", "Comment"))
+{   
+    <div class="editor-label">
+        <label>Your Name</label>
+    </div>
+    <div class="editor-field">
+       <input class="text" id="Name" name="name" type="text" value="" />
+    </div>
+    
+    <div class="editor-label">
+        <label>Your Email</label>
+    </div>
+    <div class="editor-field">
+       <input class="text" id="Email" name="email" type="text" value="" />
+    </div>
+
+    <div class="editor-label">
+        <label>Message</label>
+    </div>
+    <div class="editor-field">
+        <textarea id="Content" name="Content"></textarea>        
+    </div>
+    
+    <div class="editor-label">
+        <label>Prevent Spam</label>
+    </div>
+    <img src="/CaptchaImage/Render?challengeGuid=@ViewData["challengeGuid"]" />
+    <input type="hidden" name="myCaptcha" id="myCaptcha" value="@ViewData["challengeGuid"]" />
+    <div>Please enter the letters above</div>        
+    <div>@Html.TextBox("attempt")</div>    
+    <a href="#" class="button middle"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
+    <br style="clear:both;" />
+    <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>               
+}    
