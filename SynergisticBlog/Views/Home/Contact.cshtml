@@ -56,8 +56,19 @@
     <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>               
 }    
 
-<script>
+<script>    
     $('#btnSendMesg').click(function () {
-        $('#formContact').submit();
-    });
+        $.ajax({
+            url: '/Contact/SendMail',
+            type: 'post',
+            success: function (data) {
+                console.log(data);
+            },
+            statusCode: {
+                404: function () {
+                    alert("page not found");
+                }
+            }
+        });
+    });   
 </script>

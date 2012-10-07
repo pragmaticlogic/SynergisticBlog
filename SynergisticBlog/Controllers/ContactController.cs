@@ -13,7 +13,7 @@ namespace SynergisticBlog.Controllers
     public class ContactController : Controller
     {
         [HttpPost]
-        public ActionResult SendMail()
+        public JsonResult SendMail()
         {
             string smtpHost = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];
             string smtpLogin = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
@@ -31,9 +31,9 @@ namespace SynergisticBlog.Controllers
             }
             catch (Exception ex)
             {
-                return View(ex.Message);
+                return Json(new { status = ex.Message });
             }
-            return View("Your message has been sent.");
+            return Json(new { status = "Your message has been sent." });
         }
     }
 }
