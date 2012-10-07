@@ -30,9 +30,9 @@ namespace SynergisticBlog.Controllers
             }
             catch (Exception ex)
             {
-                
+                return View(ex.Message);
             }
-            return View();
+            return View("Your message has been sent.");
         }
     }
 }

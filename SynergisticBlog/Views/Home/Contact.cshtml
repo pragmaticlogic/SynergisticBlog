@@ -1,4 +1,5 @@
-﻿@using SynergisticBlog.Security;
+﻿@model string
+@using SynergisticBlog.Security;
 
 @{
     ViewBag.Title = "Index";
@@ -16,6 +17,10 @@
 </ul>
 }
 
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div style="color: #0094ff;">Model</div>
+}
 @using (Html.BeginForm("SendMail", "Contact"))
 {   
     <div class="editor-label">
