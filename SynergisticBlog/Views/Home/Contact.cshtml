@@ -21,7 +21,7 @@
 {
     <div style="color: #0094ff;">Model</div>
 }
-@using (Html.BeginForm("SendMail", "Contact"))
+@using (Html.BeginForm("SendMail", "Contact", new { Id = "formContact" }, FormMethod.Post))
 {   
     <div class="editor-label">
         <label>Your Name</label>
@@ -51,7 +51,13 @@
     <input type="hidden" name="myCaptcha" id="myCaptcha" value="@ViewData["challengeGuid"]" />
     <div>Please enter the letters above</div>        
     <div>@Html.TextBox("attempt")</div>    
-    <a href="#" class="button middle"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
+    <a id="btnSendMesg" class="button middle" style="cursor: pointer;"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
     <br style="clear:both;" />
     <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>               
 }    
+
+<script>
+    $('#btnSendMesg').click(function () {
+        $('#formContact').submit();
+    });
+</script>

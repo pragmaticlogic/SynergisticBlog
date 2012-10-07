@@ -11,7 +11,8 @@ using System.Configuration;
 namespace SynergisticBlog.Controllers
 {
     public class ContactController : Controller
-    {        
+    {
+        [HttpPost]
         public ActionResult SendMail()
         {
             string smtpHost = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];
