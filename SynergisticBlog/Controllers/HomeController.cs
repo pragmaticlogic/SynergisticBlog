@@ -27,7 +27,7 @@ namespace SynergisticBlog.Controllers
             var filter = @"{'Page': '" + page + "'}";
             
             //var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
-            var mgCollection = _collectionPost.Find(MongoDB.Driver.Builders.Query.EQ("Page", page));
+            var mgCollection = _collectionPost.Find(Query.EQ("Page", page));
 
             ViewData["Page"] = page;
             return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated));           
@@ -47,8 +47,15 @@ namespace SynergisticBlog.Controllers
         public ActionResult About()
         {
             var query = Query.EQ("Key", "About");
-            var item = _collectionItem.FindOne(query);
-            return View(item);
+            var collection = _collectionItem.Find(query);
+            if (collection != null)
+            {
+                return View(collection.ToList<Item>().FirstOrDefault());
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Contact()
