@@ -11,11 +11,13 @@ namespace SynergisticBlog.Controllers
 {
     public class BaseController : Controller
     {
-        protected readonly MongoCollection<Post> _collection;
+        protected readonly MongoCollection<Post> _collectionPost;
+        protected readonly MongoCollection<Item> _collectionItem;
 
         public BaseController()
         {
-            _collection = Database.GetCollection<Post>("Blogs");
+            _collectionPost = Database.GetCollection<Post>("Blogs");
+            _collectionItem = Database.GetCollection<Item>("Items");
         }
 
         public MongoDatabase Database

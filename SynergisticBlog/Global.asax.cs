@@ -41,7 +41,7 @@ namespace SynergisticBlog
                 "Logoff", // Route name                
                 "Logoff",
                 new { controller = "Account", action = "Logon" }
-            );                      
+            );            
             
             routes.MapRoute(
                 "Post", // Route name                

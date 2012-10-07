@@ -13,7 +13,7 @@ namespace SynergisticBlog.Controllers
     {
         public ActionResult Index(string id, string page)
         {
-            var post = _collection.FindOneById(ObjectId.Parse(id));
+            var post = _collectionPost.FindOneById(ObjectId.Parse(id));
             return View(post);
         }
     }

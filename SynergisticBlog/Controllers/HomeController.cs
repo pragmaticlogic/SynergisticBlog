@@ -27,7 +27,7 @@ namespace SynergisticBlog.Controllers
             var filter = @"{'Page': '" + page + "'}";
             
             //var mgCollection = _collection.Find(new QueryDocument(QueryDocument.Parse(filter)));
-            var mgCollection = _collection.Find(MongoDB.Driver.Builders.Query.EQ("Page", page));
+            var mgCollection = _collectionPost.Find(MongoDB.Driver.Builders.Query.EQ("Page", page));
 
             ViewData["Page"] = page;
             return View(mgCollection.ToList<Post>().OrderByDescending(p => p.TimeCreated));           
@@ -40,17 +40,22 @@ namespace SynergisticBlog.Controllers
 
         public ActionResult Create(Post post)
         {
-            _collection.Insert(post);
+            _collectionPost.Insert(post);
             return RedirectToAction("Index");
         }
 
         public ActionResult About()
+        {             
+            return View();
+        }
+
+        public ActionResult Contact()
         {
             string SessionKeyPrefix = "_Captcha";
             string challengeGuid = Guid.NewGuid().ToString();
 
             Session[SessionKeyPrefix + challengeGuid] = MakeRandomSolution();
-            ViewData["challengeGuid"] = challengeGuid; 
+            ViewData["challengeGuid"] = challengeGuid;
             return View();
         }
 

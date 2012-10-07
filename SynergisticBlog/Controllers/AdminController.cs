@@ -19,7 +19,7 @@ namespace SynergisticBlog.Controllers
 
             if (update)
             {
-                post = _collection.FindOneById(ObjectId.Parse(id));
+                post = _collectionPost.FindOneById(ObjectId.Parse(id));
             }
             else
             {
@@ -47,11 +47,11 @@ namespace SynergisticBlog.Controllers
                 post.TimeCreated = DateTime.Now;
                 post.UUID = System.Guid.NewGuid().ToString();
                 //_collection.Insert(post);
-                _collection.Save(post);
+                _collectionPost.Save(post);
             }
             else
             {
-                _collection.Update(query, update);
+                _collectionPost.Update(query, update);
             }
 
             return RedirectToAction("Index", "Home");
@@ -62,9 +62,34 @@ namespace SynergisticBlog.Controllers
         public JsonResult DeletePost(string id)
         {
             var query = Query.EQ("_id", ObjectId.Parse(id));
-            _collection.Remove(query);
+            _collectionPost.Remove(query);
             //return RedirectToAction("Index", "Home");
             return Json(new { success = "true" });
+        }
+
+        [Authorize]
+        public ActionResult EditItem(string key)
+        {
+            var query = Query.EQ("Key", key);
+            Item item = _collectionItem.FindOne(query);
+            if (item == null)
+            {
+                item = new Item()
+                {
+                    Key = key,
+                    Value = string.Empty,
+                };
+            }
+
+            return View(item);
+        }
+
+        [Authorize]
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult EditItem(Item item)
+        {
+            return RedirectToAction("Index", "Home");
         }
     }
 }
