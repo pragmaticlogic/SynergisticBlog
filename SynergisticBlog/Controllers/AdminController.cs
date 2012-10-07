@@ -90,7 +90,7 @@ namespace SynergisticBlog.Controllers
         public ActionResult EditItem(Item item)
         {
             _collectionItem.Save(item);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Contact", "Home");
         }
     }
 }
