@@ -89,6 +89,7 @@ namespace SynergisticBlog.Controllers
         [HttpPost]
         public ActionResult EditItem(Item item)
         {
+            _collectionItem.Save(item);
             return RedirectToAction("Index", "Home");
         }
     }
