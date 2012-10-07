@@ -54,7 +54,7 @@ namespace SynergisticBlog.Controllers
                 _collectionPost.Update(query, update);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { page = post.Page });
         }
 
         [Authorize]
@@ -89,8 +89,20 @@ namespace SynergisticBlog.Controllers
         [HttpPost]
         public ActionResult EditItem(Item item)
         {
-            _collectionItem.Save(item);
-            return RedirectToAction("Contact", "Home");
+            var query = Query.EQ("Key", "About");
+            var collection = _collectionItem.FindOne(query);
+            var update = Update.Set("Key", item.Key)
+                .Set("Value", item.Value);
+
+            if (collection == null)
+            {                
+                _collectionItem.Insert(item);
+            }
+            else
+            {
+                _collectionItem.Update(query, update);
+            }
+            return RedirectToAction("About", "Home");
         }
     }
 }

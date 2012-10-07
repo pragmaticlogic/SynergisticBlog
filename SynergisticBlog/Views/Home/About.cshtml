@@ -27,11 +27,10 @@
 
 @{
     var Transformer = new MarkdownSharp.Markdown();
+    if (Model != null && !string.IsNullOrEmpty(Model.Value)) {    
+        <div class="post_body">
+            @Html.Raw(HttpUtility.HtmlDecode(Transformer.Transform(@Model.Value)))
+        </div>
+    }
 }
 
-<div class="post_body">
-@if (Model != null && !string.IsNullOrEmpty(Model.Value))
-{
-    Html.Raw(HttpUtility.HtmlDecode(Transformer.Transform(@Model.Value)));
-}
-</div>

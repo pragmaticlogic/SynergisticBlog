@@ -47,15 +47,8 @@ namespace SynergisticBlog.Controllers
         public ActionResult About()
         {
             var query = Query.EQ("Key", "About");
-            var collection = _collectionItem.Find(query);
-            if (collection != null)
-            {
-                return View(collection.ToList<Item>().FirstOrDefault());
-            }
-            else
-            {
-                return View();
-            }
+            var item = _collectionItem.FindOne(query);
+            return View(item);
         }
 
         public ActionResult Contact()
