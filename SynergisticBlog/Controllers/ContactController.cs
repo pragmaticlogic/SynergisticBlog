@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Web.Configuration;
 using System.Web.Security;
 using System.Configuration;
+using System.Text;
 
 namespace SynergisticBlog.Controllers
 {
@@ -17,12 +18,23 @@ namespace SynergisticBlog.Controllers
         {
             string smtpHost = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];
             string smtpLogin = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
-            
+
+            var Name = Request["GuestName"];
+            var Email = Request["GuestEmail"];
+            var Msg = Request["MsgContent"];
+
+            var sb = new StringBuilder();
+            sb.Append(Name);
+            sb.Append(Environment.NewLine);
+            sb.Append(Name);
+            sb.Append(Environment.NewLine);
+            sb.Append(Msg);
 
             MailMessage mail = new MailMessage();
             mail.To.Add(new MailAddress("pragmaticobjects@gmail.com"));
             mail.From = new MailAddress(smtpLogin);
-            mail.Subject = "Test";
+            mail.Subject = "SynergisticStudio Contact Message";
+            mail.Body = sb.ToString();
 
             SmtpClient SMTPServer = new SmtpClient(smtpHost);
             try
