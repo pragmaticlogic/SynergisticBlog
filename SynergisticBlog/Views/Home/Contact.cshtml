@@ -54,7 +54,11 @@
     <a id="btnSendMesg" class="button middle" style="cursor: pointer;"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
     <br style="clear:both;" />
     <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>               
-}    
+}
+
+<div id="lblContactStatus" style="display:none;">
+
+</div>    
 
 <script>    
     $('#btnSendMesg').click(function () {
@@ -62,7 +66,8 @@
             url: '/Contact/SendMail',
             type: 'post',
             success: function (data) {
-                console.log(data);
+                $('#lblContactStatus').text(data.status).css({ 'display': 'block' });
+                $('#formContact').css({ 'display': 'none' });
             },
             statusCode: {
                 404: function () {
