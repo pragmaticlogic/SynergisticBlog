@@ -14,21 +14,21 @@ namespace SynergisticBlog.Controllers
     public class ContactController : Controller
     {
         [HttpPost]
-        public JsonResult SendMail()
+        public JsonResult SendMail(/*string GuestName, string GuestEmail, string MsgContent*/)
         {
             string smtpHost = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];
             string smtpLogin = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
 
-            var Name = Request["GuestName"];
-            var Email = Request["GuestEmail"];
-            var Msg = Request["MsgContent"];
+            var GuestName = Request["GuestName"];
+            var GuestEmail = Request["GuestEmail"];
+            var MsgContent = Request["MsgContent"];
 
             var sb = new StringBuilder();
-            sb.Append(Name);
+            sb.Append(GuestName);
             sb.Append(Environment.NewLine);
-            sb.Append(Name);
+            sb.Append(GuestEmail);
             sb.Append(Environment.NewLine);
-            sb.Append(Msg);
+            sb.Append(MsgContent);
 
             MailMessage mail = new MailMessage();
             mail.To.Add(new MailAddress("pragmaticobjects@gmail.com"));

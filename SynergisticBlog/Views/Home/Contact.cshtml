@@ -66,6 +66,8 @@
         $.ajax({
             url: '/Contact/SendMail',
             type: 'post',
+            dataType: 'json',
+            traditional: true,
             data: {
                 'GuestName': $('#GuestName').text(),
                 'GuestEmail': $('#GuestEmail').text(),
