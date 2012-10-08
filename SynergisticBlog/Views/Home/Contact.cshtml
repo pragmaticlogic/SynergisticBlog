@@ -28,21 +28,21 @@
         <label>Your Name</label>
     </div>
     <div class="editor-field">
-       <input class="text" id="Name" name="GuestName" type="text" value="" />
+       <input class="text" id="GuestName" name="GuestName" type="text" value="" />
     </div>
     
     <div class="editor-label">
         <label>Your Email</label>
     </div>
     <div class="editor-field">
-       <input class="text" id="Email" name="GuestEmail" type="text" value="" />
+       <input class="text" id="GuestEmail" name="GuestEmail" type="text" value="" />
     </div>
 
     <div class="editor-label">
         <label>Message</label>
     </div>
     <div class="editor-field">
-        <textarea id="Content" name="MsgContent"></textarea>        
+        <textarea id="MsgContent" name="MsgContent"></textarea>        
     </div>
     
     <div class="editor-label">
@@ -66,6 +66,11 @@
         $.ajax({
             url: '/Contact/SendMail',
             type: 'post',
+            data: {
+                'GuestName': $('#GuestName').text(),
+                'GuestEmail': $('#GuestEmail').text(),
+                'MsgContent': $('#MsgContent').text(),
+            },
             success: function (data) {
                 $('#lblContactStatus').text(data.status).css({ 'display': 'block' });
                 $('#formContainer').css({ 'display': 'none' });
