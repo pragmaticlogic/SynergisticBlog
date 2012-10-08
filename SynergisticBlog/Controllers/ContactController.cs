@@ -14,14 +14,14 @@ namespace SynergisticBlog.Controllers
     public class ContactController : Controller
     {
         [HttpPost]
-        public JsonResult SendMail(/*string GuestName, string GuestEmail, string MsgContent*/)
+        public JsonResult SendMail(string GuestName, string GuestEmail, string MsgContent)
         {
             string smtpHost = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];
             string smtpLogin = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
 
-            var GuestName = Request["GuestName"];
-            var GuestEmail = Request["GuestEmail"];
-            var MsgContent = Request["MsgContent"];
+            //var GuestName = Request["GuestName"];
+            //var GuestEmail = Request["GuestEmail"];
+            //var MsgContent = Request["MsgContent"];
 
             var sb = new StringBuilder();
             sb.Append(GuestName);
