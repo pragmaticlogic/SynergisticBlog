@@ -21,6 +21,7 @@
 {
     <div style="color: #0094ff;">Model</div>
 }
+<div id="formContainer">
 @using (Html.BeginForm("SendMail", "Contact", new { id = "formContact" }, FormMethod.Post))
 {   
     <div class="editor-label">
@@ -55,7 +56,7 @@
     <br style="clear:both;" />
     <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>               
 }
-
+</div>
 <div id="lblContactStatus" style="display:none;">
 
 </div>    
@@ -67,7 +68,7 @@
             type: 'post',
             success: function (data) {
                 $('#lblContactStatus').text(data.status).css({ 'display': 'block' });
-                $('#formContact').css({ 'display': 'none' });
+                $('#formContainer').css({ 'display': 'none' });
             },
             statusCode: {
                 404: function () {
