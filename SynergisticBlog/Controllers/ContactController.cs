@@ -26,11 +26,11 @@ namespace SynergisticBlog.Controllers
             var attemptedText = Request["attemptedText"];
 
             var sb = new StringBuilder();
-            sb.Append(GuestName);
+            sb.Append(MsgContent);            
             sb.Append(Environment.NewLine);
             sb.Append(GuestEmail);            
             sb.Append(Environment.NewLine);
-            sb.Append(MsgContent);
+            sb.Append(GuestName);
             sb.Append(Environment.NewLine);
             var bodyEmail = sb.ToString();
 
