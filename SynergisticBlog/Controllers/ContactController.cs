@@ -14,14 +14,16 @@ namespace SynergisticBlog.Controllers
     public class ContactController : Controller
     {
         [HttpPost]
-        public JsonResult SendMail(string GuestName, string GuestEmail, string MsgContent)
+        public JsonResult SendMail()
         {
             string smtpHost = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];
             string smtpLogin = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
 
-            //var GuestName = Request["GuestName"];
-            //var GuestEmail = Request["GuestEmail"];
-            //var MsgContent = Request["MsgContent"];
+            var GuestName = Request["GuestName"];
+            var GuestEmail = Request["GuestEmail"];
+            var MsgContent = Request["MsgContent"];
+            var challengeGuid = Request["challengeGuid"];
+            var attemptedText = Request["attemptedText"];
 
             var sb = new StringBuilder();
             sb.Append(GuestName);
@@ -30,22 +32,34 @@ namespace SynergisticBlog.Controllers
             sb.Append(Environment.NewLine);
             sb.Append(MsgContent);
 
-            MailMessage mail = new MailMessage();
-            mail.To.Add(new MailAddress("pragmaticobjects@gmail.com"));
-            mail.From = new MailAddress(smtpLogin);
-            mail.Subject = "SynergisticStudio Contact Message";
-            mail.Body = sb.ToString();
+            string SessionKeyPrefix = "_Captcha";            
+            string solution = (string) Session[SessionKeyPrefix + challengeGuid];
+            Session.Remove(SessionKeyPrefix + challengeGuid);
 
-            SmtpClient SMTPServer = new SmtpClient(smtpHost);
-            try
-            {                
-                SMTPServer.Send(mail);
-            }
-            catch (Exception ex)
+            if (!string.IsNullOrEmpty(solution) && solution.Equals(attemptedText))
             {
-                return Json(new { status = ex.Message });
+
+                MailMessage mail = new MailMessage();
+                mail.To.Add(new MailAddress("pragmaticobjects@gmail.com"));
+                mail.From = new MailAddress(smtpLogin);
+                mail.Subject = "SynergisticStudio Contact Message";
+                mail.Body = sb.ToString();
+
+                SmtpClient SMTPServer = new SmtpClient(smtpHost);
+                try
+                {
+                    SMTPServer.Send(mail);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { status = ex.Message });
+                }
+                return Json(new { status = "Sent" });
             }
-            return Json(new { status = "Your message has been sent." });
+            else
+            {
+                return Json(new { status = "Failed" });
+            }
         }
     }
 }
