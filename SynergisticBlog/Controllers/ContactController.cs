@@ -25,6 +25,13 @@ namespace SynergisticBlog.Controllers
             var challengeGuid = Request["challengeGuid"];
             var attemptedText = Request["attemptedText"];
 
+            if (MsgContent.Count() == 0)
+            {
+                
+            }
+
+            MsgContent = "This message has no content";
+
             var sb = new StringBuilder();
             sb.Append(MsgContent);            
             sb.Append(Environment.NewLine);
