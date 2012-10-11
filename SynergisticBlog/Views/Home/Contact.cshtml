@@ -22,8 +22,7 @@
     <div style="color: #0094ff;">Model</div>
 }
 <div id="formContainer">
-@using (Html.BeginForm("SendMail", "Contact", new { id = "formContact" }, FormMethod.Post))
-{   
+    <form action="Contact/SendMail" method="post" id="formContact">   
     <div class="editor-label">
         <label>Your Name</label>
     </div>
@@ -57,8 +56,8 @@
         <a id="btnSendMesg" class="button middle" style="cursor: pointer;"><span class="icon icon125"></span><span class="label blue">Send Message</span></a>
         <br style="clear:both;" />
     </div>
-    <div>@Html.ActionLink("Back to Blog", "Index", "Home")</div>               
-}
+    
+    </form>
 </div>
 <div id="lblContactStatus" style="display:none;">
 
