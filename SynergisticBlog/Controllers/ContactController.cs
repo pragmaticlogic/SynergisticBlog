@@ -27,10 +27,8 @@ namespace SynergisticBlog.Controllers
 
             if (MsgContent.Count() == 0)
             {
-                
-            }
-
-            MsgContent = "This message has no content";
+                MsgContent = "This message has no content";
+            }            
 
             var sb = new StringBuilder();
             sb.Append(MsgContent);            
