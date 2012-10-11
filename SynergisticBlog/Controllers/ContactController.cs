@@ -31,6 +31,7 @@ namespace SynergisticBlog.Controllers
             sb.Append(GuestEmail);
             sb.Append(Environment.NewLine);
             sb.Append(MsgContent);
+            var bodyEmail = sb.ToString();
 
             string SessionKeyPrefix = "_Captcha";            
             string solution = (string) Session[SessionKeyPrefix + challengeGuid];
@@ -43,7 +44,8 @@ namespace SynergisticBlog.Controllers
                 mail.To.Add(new MailAddress("pragmaticobjects@gmail.com"));
                 mail.From = new MailAddress(smtpLogin);
                 mail.Subject = "SynergisticStudio Contact Message";
-                mail.Body = sb.ToString();
+                mail.Body = bodyEmail;
+                
 
                 SmtpClient SMTPServer = new SmtpClient(smtpHost);
                 try
