@@ -27,11 +27,13 @@ namespace SynergisticBlog.Controllers
 
             var sb = new StringBuilder();
             sb.Append(GuestName);
-            sb.Append(Environment.NewLine);
+            sb.Append("%0D%0A");
+            //sb.Append(Environment.NewLine);
             sb.Append(GuestEmail);
-            sb.Append(Environment.NewLine);
+            sb.Append("%0D%0A");
+            //sb.Append(Environment.NewLine);
             sb.Append(MsgContent);
-            var bodyEmail = sb.ToString();
+            var bodyEmail = sb.ToString().Replace("&", "%26");
 
             string SessionKeyPrefix = "_Captcha";            
             string solution = (string) Session[SessionKeyPrefix + challengeGuid];
