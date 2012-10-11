@@ -80,7 +80,7 @@
             },
             success: function (data) {
                 if (data.status == 'Sent') {
-                    $('#lblContactStatus').text(data.status).css({ 'display': 'block' });
+                    $('#lblContactStatus').text('Your contact message has been sent!').css({ 'display': 'block' });
                     $('#formContainer').css({ 'display': 'none' });
                 } else {
                     location.reload(true);
