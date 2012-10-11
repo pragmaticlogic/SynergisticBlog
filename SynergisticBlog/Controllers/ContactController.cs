@@ -32,7 +32,7 @@ namespace SynergisticBlog.Controllers
             sb.Append(Environment.NewLine);
             sb.Append(GuestName);
             sb.Append(Environment.NewLine);
-            var bodyEmail = sb.ToString();
+            var bodyEmail = string.Format("{0}\r\n{1}\r\n{2}", MsgContent, GuestEmail, GuestName);
 
             string SessionKeyPrefix = "_Captcha";            
             string solution = (string) Session[SessionKeyPrefix + challengeGuid];
