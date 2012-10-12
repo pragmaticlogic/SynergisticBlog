@@ -7,7 +7,6 @@ using System.Net.Mail;
 using System.Web.Configuration;
 using System.Web.Security;
 using System.Configuration;
-using System.Text;
 
 namespace SynergisticBlog.Controllers
 {
@@ -25,19 +24,22 @@ namespace SynergisticBlog.Controllers
             var challengeGuid = Request["challengeGuid"];
             var attemptedText = Request["attemptedText"];
 
-            if (MsgContent.Count() == 0)
+            if (string.IsNullOrEmpty(GuestName))
+            {
+                GuestName = "Anonymous";
+            }
+
+            if (string.IsNullOrEmpty(GuestEmail))
+            {
+                GuestName = "Email not revealed";
+            }
+
+            if (string.IsNullOrEmpty(MsgContent))
             {
                 MsgContent = "This message has no content";
             }            
-
-            var sb = new StringBuilder();
-            sb.Append(MsgContent);            
-            sb.Append(Environment.NewLine);
-            sb.Append(GuestEmail);            
-            sb.Append(Environment.NewLine);
-            sb.Append(GuestName);
-            sb.Append(Environment.NewLine);
-            var bodyEmail = string.Format("{0}\r\n{1}\r\n{2}", MsgContent, GuestEmail, GuestName);
+            
+            var bodyEmail = string.Format("From {0} ({1})\r\n\r\n{2}", GuestName, GuestEmail, MsgContent);
 
             string SessionKeyPrefix = "_Captcha";            
             string solution = (string) Session[SessionKeyPrefix + challengeGuid];
@@ -47,9 +49,9 @@ namespace SynergisticBlog.Controllers
             {
 
                 MailMessage mail = new MailMessage();
-                mail.To.Add(new MailAddress("pragmaticobjects@gmail.com"));
+                mail.To.Add(new MailAddress(ConfigurationManager.AppSettings["CONTACT_EMAIL"]));
                 mail.From = new MailAddress(smtpLogin);
-                mail.Subject = "SynergisticStudio Contact Message";
+                mail.Subject = ConfigurationManager.AppSettings["CONTACT_EMAIL_SUBJECT"];
                 mail.Body = bodyEmail;
                 
 
