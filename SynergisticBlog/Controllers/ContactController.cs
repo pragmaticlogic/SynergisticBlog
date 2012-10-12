@@ -31,7 +31,7 @@ namespace SynergisticBlog.Controllers
 
             if (string.IsNullOrEmpty(GuestEmail))
             {
-                GuestName = "Email not revealed";
+                GuestEmail = "Email not revealed";
             }
 
             if (string.IsNullOrEmpty(MsgContent))
