@@ -1,4 +1,4 @@
-/*@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);*/
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {  
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -118,7 +118,7 @@ input.submit_post {
 }
 
 .post_body {    
-	font-size: 12px;
+	font-size: 14px;
 }
 
 ul.tabs {
