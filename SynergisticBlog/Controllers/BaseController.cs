@@ -16,7 +16,7 @@ namespace SynergisticBlog.Controllers
 
         public BaseController()
         {
-            _collectionPost = Database.GetCollection<Post>("Blogs");
+            _collectionPost = Database.GetCollection<Post>("Posts");
             _collectionItem = Database.GetCollection<Item>("Items");
         }
 
